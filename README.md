@@ -13,3 +13,6 @@ Ideas for Project
 *	Spiritual Retreat App
 *	Highest Peaks and Lowest Elevations App
 *	Nutritional Guide App
+### Alex Mukha ideas:
+    * Shopping list
+    * Train Lis
