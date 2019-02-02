@@ -1,3 +1,4 @@
 # Project-One
 
-### Alex Mukha
+### Alex Mukha ideas:
+    * Shopping list
