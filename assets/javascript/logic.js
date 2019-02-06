@@ -16,3 +16,15 @@
     var query = $("#location-query").val();
     console.log(query);
   })
+
+
+
+
+  //////////////////////key for dark sky weather api//////////////////////////
+  ///example: https://api.darksky.net/forecast/[key]/[latitude],[longitude]/////
+  
+  //https://api.darksky.net/forecast/cd72cdbc3d4d03dd64ac2163dc4395b9/37.8267,-122.4233//
+
+  //////////////////////key for dark sky weather api//////////////////////////
+
+
