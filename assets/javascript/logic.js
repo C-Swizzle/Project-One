@@ -44,7 +44,8 @@ $.ajax({
   var obj=JSON.parse(response);
   for (var i=0; i<7;i++) {
     $p = $("<p>");
-    $p.text(obj.daily.data[i].summary);
+    var dum = i+1;
+    $p.text("Day " + dum + ": " + obj.daily.data[i].summary);
     $("#summary").append($p);
   }
 
