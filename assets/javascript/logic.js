@@ -16,3 +16,4 @@
     var query = $("#location-query").val();
     console.log(query);
   })
+
