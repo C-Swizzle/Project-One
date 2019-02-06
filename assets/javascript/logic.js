@@ -42,6 +42,7 @@ $.ajax({
 }).then(function(response){
   console.log(JSON.parse(response));
   var obj=JSON.parse(response);
+  $("#summary").empty();
   for (var i=0; i<7;i++) {
     $p = $("<p>");
     var dum = i+1;
