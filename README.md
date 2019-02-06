@@ -47,4 +47,4 @@ Ideas for Project
         and all danger alerts.
     2. As a user, I want to be able to search a location or have it detect my location and automatically check.
     3. As a user, I want to see a 7 day forecast of weather in my area or area that I search for.
-    4. As a user, I want to check for campgrounds near me.
+    4. As a user, I want to check for open and not full campgrounds near me.
