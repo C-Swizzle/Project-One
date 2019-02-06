@@ -1,3 +1,6 @@
+ //Active Search API Key: SAXTH2D7NCRDMQYTH4Q2ACYK
+ //Campground API Key: CV62R4AWQVP6W4Z6ZWS5XWT4
+ 
  // Initialize Firebase
  var config = {
     apiKey: "AIzaSyBUm91ISX7r3E0e4GQPHlX6vwe-GT03uWQ",
