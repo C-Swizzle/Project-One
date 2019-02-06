@@ -10,3 +10,9 @@
   firebase.initializeApp(config);
 
   // adding some change to check if branch is working
+
+  $(document).on("click", "#location-submit", function(e) {
+    e.preventDefault();
+    var query = $("#location-query").val();
+    console.log(query);
+  })
