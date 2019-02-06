@@ -41,6 +41,8 @@ Ideas for Project
 * Things like liking photos, sending photos to friends, making instagram stories, etc are cool, but they aren't essential. They should **not** be part of the MVP.
 
 #ChrisMacK MVP
+* 
+
     1. As a user, I want to check realtime forecasts for campgrounds and see any
         and all danger alerts.
     2. As a user, I want to be able to search a location or have it detect my location and automatically check.
