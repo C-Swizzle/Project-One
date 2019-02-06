@@ -15,6 +15,6 @@ Ideas for Project
 *	Nutritional Guide App
 ### Alex Mukha ideas:
     * Shopping list
-    * Train Lis
+    * Train List
 ### Alex Mukha
 ### Michelle Tyson
