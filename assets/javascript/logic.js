@@ -41,6 +41,12 @@ $.ajax({
   method: "GET"
 }).then(function(response){
   console.log(JSON.parse(response));
+  var obj=JSON.parse(response);
+  for (var i=0; i<7;i++) {
+    $p = $("<p>");
+    $p.text(obj.daily.data[i].summary);
+    $("#summary").append($p);
+  }
 
 })
 
