@@ -39,3 +39,9 @@ Ideas for Project
   3. As a user, I want to be able to view other people's images so that I can keep up with what's happening in their lives. 
 
 * Things like liking photos, sending photos to friends, making instagram stories, etc are cool, but they aren't essential. They should **not** be part of the MVP.
+
+
+    1. As a user, I want to check realtime forecasts for campgrounds and see any
+        and all danger alerts.
+    2. As a user, I want to be able to search a location or have it detect my location and automatically check.
+    3. As a user, I want to see a 7 day forecast of weather in my area or area that I search for.
