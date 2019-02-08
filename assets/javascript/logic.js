@@ -21,6 +21,10 @@ var query;
 
 var latitude;
 var longitude;
+var state;
+var country;
+var formatted;
+
 
 
   //opencage (latitude longitude) API
@@ -32,8 +36,23 @@ var longitude;
     console.log(response);
     latitude = response.results[0].geometry.lat;
     longitude = response.results[0].geometry.lng;
-    
+    state=response.results[0].components.state;
+    country=response.results[0].components.country;
+    formatted=response.results[0].formatted;
 // darksky api
+$("#summary").empty();
+var $h=$("<h1>");
+$h.text("Want a different place? Maybe you meant one of these!");
+$("#summary").append($h);
+for (var i=1; i<response.results.length; i++) {
+  var $a=$("<a href='#' class='text-primary others-notbs'>");
+  $a.attr("data-latitude", response.results[i].geometry.lat);
+  $a.attr("data-longitude", response.results[i].geometry.lng);
+  $a.text(response.results[i].formatted);
+  $("#summary").append($a);
+  var br=$("<br>");
+  $("#summary").append(br);
+}
 $.ajax({
   crossOrigin: true,
   datatype: "jsonp",
@@ -41,14 +60,20 @@ $.ajax({
   method: "GET"
 }).then(function(response){
   console.log(JSON.parse(response));
+  // console.log(response);
   var obj=JSON.parse(response);
-  $("#summary").empty();
-  for (var i=0; i<7;i++) {
-    $p = $("<p>");
+  // $("#summary").empty();
+ 
+
+  for (var i=6; i>=0;i--) {
+    var $p = $("<p class='text-success'>");
     var dum = i+1;
     $p.text("Day " + dum + ": " + obj.daily.data[i].summary);
-    $("#summary").append($p);
+    $("#summary").prepend($p);
   }
+  var $h1=$("<h1>");
+  $h1.text("Weather Results for: " + formatted);
+  $("#summary").prepend($h1);
 
 })
 
@@ -64,4 +89,29 @@ $.ajax({
 
   //////////////////////key for dark sky weather api//////////////////////////
 
+$(document).on("click", ".others-notbs", function() {
+  var latitudeFromHere=$(this).attr("data-latitude");
+  var longitudeFromHere=$(this).attr("data-longitude");
+  var place =$(this).text();
+$.ajax({
+  crossOrigin: true,
+  datatype: "jsonp",
+  url:"https://api.darksky.net/forecast/c896d15d2a8926d09cc36230360c18f8/"+latitudeFromHere+","+longitudeFromHere,
+  method: "GET"
 
+}).then(function(response){
+  var obj=JSON.parse(response);
+  $("#summary").empty();
+ var $hhh=$("<h1>");
+ $hhh.text("Weather Results for: " + place);
+
+  for (var i=6; i>=0;i--) {
+    var $p = $("<p class='text-success'>");
+    var dum = i+1;
+    $p.text("Day " + dum + ": " + obj.daily.data[i].summary);
+    $("#summary").prepend($p);
+  }
+  $("#summary").prepend($hhh);
+});
+
+});
