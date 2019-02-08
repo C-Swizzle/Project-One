@@ -68,6 +68,8 @@ $.ajax({
     var $p = $("<p class='text-success'>");
     var dum = i+1;
     $p.text("Day " + dum + ": " + obj.daily.data[i].summary);
+    // var weatherIcon=obj.daily.data[i].icon;
+    // console.log(weatherIcon);
     // var $icon = $("	<canvas id='"+obj.daily.data[i].icon+"' width='64' height='64'></canvas>");
     // $p.append($icon);
     $("#summary").prepend($p);
