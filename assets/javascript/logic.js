@@ -52,22 +52,24 @@ for (var i=1; i<response.results.length; i++) {
   var br=$("<br>");
   $("#summary").append(br);
 }
+
 $.ajax({
-  crossOrigin: true,
-  datatype: "jsonp",
+  // crossOrigin: true,
+  // datatype: "jsonp",
   url:"https://api.darksky.net/forecast/c896d15d2a8926d09cc36230360c18f8/"+latitude+","+longitude,
   method: "GET"
 }).then(function(response){
-  console.log(JSON.parse(response));
+  console.log(response)
+  // console.log(JSON.parse(response));
   // console.log(response);
-  var obj=JSON.parse(response);
+  var obj=response;
   // $("#summary").empty();
  
 
   for (var i=6; i>=0;i--) {
     var $p = $("<p class='text-success'>");
     var dum = i+1;
-    $p.text("Day " + dum + ": " + obj.daily.data[i].summary);
+    $p.text("Day " + dum + ": " + response.daily.data[i].summary);
     // var $icon = $("	<canvas id='"+obj.daily.data[i].icon+"' width='64' height='64'></canvas>");
     // $p.append($icon);
     $("#summary").prepend($p);
@@ -101,7 +103,7 @@ $.ajax({
   method: "GET"
 
 }).then(function(response){
-  var obj=JSON.parse(response);
+  var obj=response;
   $("#summary").empty();
  var $hhh=$("<h1>");
  $hhh.text("Weather Results for: " + place);
@@ -114,4 +116,16 @@ $.ajax({
   }
   $("#summary").prepend($hhh);
 });
+
+});
+
+$.ajax({
+  // crossOrigin: true,
+  // datatype: "jsonp",
+  url:"https://api.darksky.net/forecast/c896d15d2a8926d09cc36230360c18f8/38.7907339,-121.2357828",
+  method: "GET"
+}).then(function(response){
+  // console.log(JSON.parse(response));
+  // console.log(response);
+
 });
