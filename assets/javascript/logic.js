@@ -13,13 +13,46 @@
   firebase.initializeApp(config);
 
   // adding some change to check if branch is working
-
+var query;
   $(document).on("click", "#location-submit", function(e) {
     e.preventDefault();
-    var query = $("#location-query").val();
+    query = $("#location-query").val();
     console.log(query);
-  })
 
+var latitude;
+var longitude;
+
+
+  //opencage (latitude longitude) API
+  $.ajax({
+    url: "https://api.opencagedata.com/geocode/v1/json?q="+query+"&key=7f6166b91c1343faac23e99b69da427a",
+    method:"GET"
+
+  }).then(function(response) {
+    console.log(response);
+    latitude = response.results[0].geometry.lat;
+    longitude = response.results[0].geometry.lng;
+    
+// darksky api
+$.ajax({
+  crossOrigin: true,
+  datatype: "jsonp",
+  url:"https://api.darksky.net/forecast/c896d15d2a8926d09cc36230360c18f8/"+latitude+","+longitude,
+  method: "GET"
+}).then(function(response){
+  console.log(JSON.parse(response));
+  var obj=JSON.parse(response);
+  for (var i=0; i<7;i++) {
+    $p = $("<p>");
+    var dum = i+1;
+    $p.text("Day " + dum + ": " + obj.daily.data[i].summary);
+    $("#summary").append($p);
+  }
+
+})
+
+  })
+})
 
 
 
