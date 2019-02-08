@@ -63,16 +63,32 @@ $.ajax({
   // console.log(JSON.parse(response));
   // console.log(response);
   var obj=response;
-  // $("#summary").empty();
- 
 
+ 
+  var $row = $("<div class='row'>");
   for (var i=6; i>=0;i--) {
     var $p = $("<p class='text-success'>");
     var dum = i+1;
     $p.text("Day " + dum + ": " + response.daily.data[i].summary);
-    // var $icon = $("	<canvas id='"+obj.daily.data[i].icon+"' width='64' height='64'></canvas>");
-    // $p.append($icon);
+    var weatherIcon = response.daily.data[i].icon;
+    console.log(weatherIcon);
     $("#summary").prepend($p);
+    if (i>0) {
+   
+    var $highLow=$("<div class='col-md-2 text-danger'>");
+    var $high = $("<p class='text-danger'>");
+    var $low = $("<p class='text-primary'>");
+    var $br=$("<br>");
+    $high.text(response.daily.data[i].temperatureHigh);
+    $low.text(response.daily.data[i].temperatureLow);
+    $highLow.append($high);
+    $highLow.append($br);
+    $highLow.append($low);
+    
+    
+    $row.prepend($highLow);
+    $("#high-low").append($row);
+    }
   }
   var $h1=$("<h1>");
   $h1.text("Weather Results for: " + formatted);
