@@ -69,6 +69,8 @@ $.ajax({
     var $p = $("<p class='text-success'>");
     var dum = i+1;
     $p.text("Day " + dum + ": " + obj.daily.data[i].summary);
+    // var $icon = $("	<canvas id='"+obj.daily.data[i].icon+"' width='64' height='64'></canvas>");
+    // $p.append($icon);
     $("#summary").prepend($p);
   }
   var $h1=$("<h1>");
@@ -113,5 +115,4 @@ $.ajax({
   }
   $("#summary").prepend($hhh);
 });
-
 });
