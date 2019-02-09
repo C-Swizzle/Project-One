@@ -1,7 +1,8 @@
  //Active Search API Key: SAXTH2D7NCRDMQYTH4Q2ACYK
  //Campground API Key: CV62R4AWQVP6W4Z6ZWS5XWT4
  // Initialize Firebase
- var config = {
+ $(document).ready(function(){
+    var config = {
   apiKey: "AIzaSyBUm91ISX7r3E0e4GQPHlX6vwe-GT03uWQ",
   authDomain: "project-one-52a15.firebaseapp.com",
   databaseURL: "https://project-one-52a15.firebaseio.com",
@@ -113,7 +114,7 @@ $("#summary").prepend($hhh);
     console.log('test01');
 $(document).on('click', '#route-submit', function(event){
   event.preventDefault();  
-    console.log('onclick');
+    console.log('clicked');
   
     var routeList = $('#route-list');
     console.log(routeList);
@@ -130,12 +131,6 @@ $(document).on('click', '#route-submit', function(event){
     $('#display-conditions').load('https://cors-anywhere.herokuapp.com/http://www.dot.ca.gov/hq/roadinfo/' + selectedRoute);
 
   });
-  //     for (var i=1; i<301; i++) {
-  //       var SR=$("<option>");
-  //       SR.text("SR*" + i);
-  //       var SRvalue="sr" + i;
-  //       SR.attr("value", SRvalue);
-  //       $("#route-list").append(SR[0]);
-  //       console.log(SR);
-  //      }
 
+
+});
