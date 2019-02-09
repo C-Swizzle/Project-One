@@ -33,6 +33,7 @@ body {
     height:300px;
     color: #fff; 
     background-color: #673ab7;
+    overflow: hidden;
 }
 
 #section3 {
