@@ -17,18 +17,39 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
 <script src="assets/javascript/ajax-cross-origin/js/jquery.ajax-cross-origin.min.js"></script>
     <script src="assets/javascript/logic.js"></script>
 </head>
-<body>
-    <header id="header" class="bg-secondary">
-        <h1 id="head" class="text-center">Plan a California Camping Roadtrip</h1>
-        <nav id="navItems" class="nav">
-            <a class="nav-link text-right" href="#">About |</a>
-            <a class="nav-link text-right" href="#">Ideas |</a>
-            <a class="nav-link text-right" href="#">Resources</a>
-        </nav>
-    </header>     
-            
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <nav id="head" class="navbar navbar-fixed-top" data-spy="affix">
+        <div  class="">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                          
+            </button>
+            </div>
+
+            <div>
+            <div class="collapse navbar-collapse" id="Navbar">
+                <ul class="nav navbar-nav text-white">
+                <li><a href="#section1">Search Weather</a></li>
+                <li><a href="#section2">Results</a></li>
+                <li><a href="#section3">Contact</a></li>    
+                </ul>
+            </div>
+            </div>
+        </div>
+    </nav>  
+               
     <div class="container">
-        <form>
+        <div id="title" class="row">
+           <h1>Weather Search</h1>  
+        </div>
+
+        <div id="section1" class="row">
+            <div id="leftImage" class="col-xs-3 ">
+                <h6>Section 1, Left side</h6>
+                <img src="assets/images/swirl.jpeg" alt="placeholder-image" class="img-thumbnail">
+            </div>
             
                 <div class="form-group">
                   <label for="location-query">Location to check:</label>
@@ -37,13 +58,70 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
                   <button type="submit" id="location-submit" class="btn btn-primary">Submit</button>
         </form>
         <div id="summary">
+            <div id="centerSearch" class="col-xs-6 ">
+                <h6>Section 2, center, weather search </h6>                        
+                    <form>    
+                        <div class="form-group">
+                            <label for="location-query">Location to check:</label>
+                            <input type="location" id="location-query" class="form-control" placeholder="Location to Check">
+                        </div>
+                            <button type="submit" id="location-submit" class="btn btn-primary">Submit</button>
+                    </form>                
+            </div> 
+
+            <div id="rightImage" class="col-xs-3 ">                                                    
+                <h6>Section 3,Right Side</h6>
+                <img src="assets/images/swirl.jpeg" alt="placeholder-image" class="img-thumbnail">    
+            </div>
 
         </div>
-        <br>
-        <br>
+    <br>
 
-        <a href="https://darksky.net/poweredby/" class="text-secondary">Powered by Dark Sky</a>
+        <div id="section2" class="row">
+                <div id="leftResults" class="col-xs-6 ">
+                    <h6>row2, Left side, map results?</h6>
+                </div>             
+    
+                <div id="rightResults" class="col-xs-6 ">                                                    
+                    <h6>R2, Right Side,weather results</h6>
+                    <div id="summary"></div>  
+                    <a href="https://darksky.net/poweredby/" class="text-secondary">Powered by Dark Sky</a> 
+                </div>
+        </div>
+    <br>
+
+        <div id="section3" class="row">
+            <div id="contact" class="card">
+                <div id= "card-head" class="card-header">Contact</div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group text-secondary">
+                                <label for="name">Name</label>
+                                <br>
+                                <input type="text" id="name" name="name" placeholder="FirstName LastName" required="required">                
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <br>
+                                <input type="email" id="email" name="email" placeholder="example@gmail.com" required="required">                            
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <br>
+                                <input type="message" id="message" name="message" placeholder="Your message here"required="required">
+                            </div>
+                
+                            <button id = "submitContact" type="submit" class="btn btn-primary">Submit</button>
+                    
+                        </form>
+                    </div>
+            </div>                           
+        </div>
+
     </div>
+<<<<<<< HEAD
 <br><br>
     <div class= container>
       <div class="row">
@@ -387,5 +465,14 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
       
       <a href="http://www.dot.ca.gov" class="text-info">Real Highway Conditions Data by CalTrans</a>
       </div>
+=======
+   
+    <footer>
+        <div class="container">
+            Copyright &copy;
+        </div>
+    </footer>
+    
+>>>>>>> d3f3e2e04dd970bae69b0665b3eee1daeb4590e8
 </body>
 </html>
