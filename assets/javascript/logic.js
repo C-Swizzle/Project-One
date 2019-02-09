@@ -18,24 +18,24 @@ $(document).ready(function(){
 
   
 var query;
-  $(document).on("click", "#location-submit", function(e) {
-    e.preventDefault();
-    query = $("#location-query").val();
-    console.log(query);
-
-var latitude;
-var longitude;
-var state;
-var country;
-var formatted;
-
-
-
+$(document).on("click", "#location-submit", function(e) {
+  e.preventDefault();
+  query = $("#location-query").val();
+  console.log(query);
+  
+  var latitude;
+  var longitude;
+  var state;
+  var country;
+  var formatted;
+  
+  
+  
   //opencage (latitude longitude) API
   $.ajax({
     url: "https://api.opencagedata.com/geocode/v1/json?q="+query+"&key=7f6166b91c1343faac23e99b69da427a",
     method:"GET"
-
+    
   }).then(function(response) {
     console.log(response);
     latitude = response.results[0].geometry.lat;
@@ -58,14 +58,12 @@ for (var i=1; i<response.results.length; i++) {
   $("#summary").append(br);
 }
 $.ajax({
-  crossOrigin: true,
-  datatype: "jsonp",
-  url:"https://api.darksky.net/forecast/c896d15d2a8926d09cc36230360c18f8/"+latitude+","+longitude,
+  url:"https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/c896d15d2a8926d09cc36230360c18f8/"+latitude+","+longitude,
   method: "GET"
 }).then(function(response){
-  console.log(JSON.parse(response));
+  console.log(response);
   // console.log(response);
-  var obj=JSON.parse(response);
+  var obj=response;
   // $("#summary").empty();
  
 
@@ -73,8 +71,6 @@ $.ajax({
     var $p = $("<p class='text-success'>");
     var dum = i+1;
     $p.text("Day " + dum + ": " + obj.daily.data[i].summary);
-    // var $icon = $("	<canvas id='"+obj.daily.data[i].icon+"' width='64' height='64'></canvas>");
-    // $p.append($icon);
     $("#summary").prepend($p);
   }
   var $h1=$("<h1>");
@@ -88,36 +84,35 @@ $.ajax({
 
 
 
-  //////////////////////key for dark sky weather api//////////////////////////
-  ///example: https://api.darksky.net/forecast/[key]/[latitude],[longitude]/////
-  
-  //https://api.darksky.net/forecast/cd72cdbc3d4d03dd64ac2163dc4395b9/37.8267,-122.4233//
+//////////////////////key for dark sky weather api//////////////////////////
+///example: https://api.darksky.net/forecast/[key]/[latitude],[longitude]/////
 
-  //////////////////////key for dark sky weather api//////////////////////////
+//https://api.darksky.net/forecast/cd72cdbc3d4d03dd64ac2163dc4395b9/37.8267,-122.4233//
+
+//////////////////////key for dark sky weather api//////////////////////////
 
 $(document).on("click", ".others-notbs", function() {
   var latitudeFromHere=$(this).attr("data-latitude");
   var longitudeFromHere=$(this).attr("data-longitude");
   var place =$(this).text();
 $.ajax({
-  crossOrigin: true,
-  datatype: "jsonp",
-  url:"https://api.darksky.net/forecast/c896d15d2a8926d09cc36230360c18f8/"+latitudeFromHere+","+longitudeFromHere,
+  url:"https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/c896d15d2a8926d09cc36230360c18f8/"+latitudeFromHere+","+longitudeFromHere,
   method: "GET"
 
 }).then(function(response){
-  var obj=JSON.parse(response);
+  var obj=response;
   $("#summary").empty();
  var $hhh=$("<h1>");
  $hhh.text("Weather Results for: " + place);
-
-  for (var i=6; i>=0;i--) {
-    var $p = $("<p class='text-success'>");
-    var dum = i+1;
-    $p.text("Day " + dum + ": " + obj.daily.data[i].summary);
-    $("#summary").prepend($p);
-  }
-  $("#summary").prepend($hhh);
+ for (var i=6; i>=0;i--) {
+  var $p = $("<p class='text-success'>");
+  var dum = i+1;
+  $p.text("Day " + dum + ": " + obj.daily.data[i].summary);
+  // var $icon = $("	<canvas id='"+obj.daily.data[i].icon+"' width='64' height='64'></canvas>");
+  // $p.append($icon);
+  $("#summary").prepend($p);
+}
+$("#summary").prepend($hhh);
 });
 });
 
@@ -163,5 +158,30 @@ $("#submitContact").on("click", function(event){
    
 });
 
-});
+
 /////////////////////////////////mt contact firebase end///////////////////////////
+    console.log('test01');
+$(document).on('click', '#route-submit', function(event){
+  event.preventDefault();  
+    console.log('clicked');
+  
+    var routeList = $('#route-list');
+    console.log(routeList);
+    for (var i = 0; i < routeList[0].length; i++){
+      var index = routeList[0][i].selected;
+      if(index === true){
+
+      var selectedRoute = routeList[0][i].value;
+      }
+    }
+    // var selectedRoute = routeList.options[routeList.selectedIndex].value;
+    console.log(selectedRoute);
+    // $("#display-conditions").empty();
+    $('#display-conditions').load('https://cors-anywhere.herokuapp.com/http://www.dot.ca.gov/hq/roadinfo/' + selectedRoute);
+
+  });
+
+
+// });
+
+});
