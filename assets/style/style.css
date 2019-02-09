@@ -19,7 +19,7 @@
 
 body {
     position: relative;
-    background: url("/assets/images/swirl.jpeg");
+    background: url("../images/swirl.jpeg");
     /* background-size: 100vh 100vh; */
     /* background-color: aqua; */
 }
@@ -61,6 +61,8 @@ body {
 #leftImage{
     background-color: pink;
     min-height: 100%;
+    display: invisible;
+
 }
 
 #rightImage {
@@ -103,5 +105,4 @@ footer {
     border-top: 5px solid #465c5b;
     margin-top: 10px;
 }
-
 
