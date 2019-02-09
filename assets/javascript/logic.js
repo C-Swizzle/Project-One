@@ -1,5 +1,4 @@
- //Active Search API Key: SAXTH2D7NCRDMQYTH4Q2ACYK
- //Campground API Key: CV62R4AWQVP6W4Z6ZWS5XWT4
+
  // Initialize Firebase
  var config = {
   apiKey: "AIzaSyBUm91ISX7r3E0e4GQPHlX6vwe-GT03uWQ",
@@ -110,6 +109,9 @@ $.ajax({
 $("#summary").prepend($hhh);
 });
 });
+
+
+// ROAD CONDITIONS
     console.log('test01');
 $(document).on('click', '#route-submit', function(event){
   event.preventDefault();  
@@ -124,18 +126,66 @@ $(document).on('click', '#route-submit', function(event){
       var selectedRoute = routeList[0][i].value;
       }
     }
-    // var selectedRoute = routeList.options[routeList.selectedIndex].value;
+    
     console.log(selectedRoute);
     // $("#display-conditions").empty();
     $('#display-conditions').load('https://cors-anywhere.herokuapp.com/http://www.dot.ca.gov/hq/roadinfo/' + selectedRoute);
 
   });
-  //     for (var i=1; i<301; i++) {
-  //       var SR=$("<option>");
-  //       SR.text("SR*" + i);
-  //       var SRvalue="sr" + i;
-  //       SR.attr("value", SRvalue);
-  //       $("#route-list").append(SR[0]);
-  //       console.log(SR);
-  //      }
 
+ 
+ //CAMPGROUND API Key: CV62R4AWQVP6W4Z6ZWS5XWT4
+$(document).on('click', '#campground-submit', function(){
+  event.preventDefault();
+  var proxy = 'https://cors-anywhere.herokuapp.com/';
+
+  var parkName = '';
+  $.ajax({
+    url: proxy + 'http://api.amp.active.com/camping/campgrounds/?pstate=CA&pname=' + parkName + '&api_key=cv62r4awqvp6w4z6zws5xwt4',
+    method: 'GET'
+  }).then(function(response){
+    console.log(xmlToJson(response));
+  })
+
+
+  $('#display-campground').text(response);
+
+})
+
+// Changes XML to JSON
+function xmlToJson(xml) {
+	
+	var obj = {};
+
+	if (xml.nodeType == 1) { // element
+		// do attributes
+		if (xml.attributes.length > 0) {
+		obj["@attributes"] = {};
+			for (var j = 0; j < xml.attributes.length; j++) {
+				var attribute = xml.attributes.item(j);
+				obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
+			}
+		}
+	} else if (xml.nodeType == 3) { // text
+		obj = xml.nodeValue;
+	}
+
+	// do children
+	if (xml.hasChildNodes()) {
+		for(var i = 0; i < xml.childNodes.length; i++) {
+			var item = xml.childNodes.item(i);
+			var nodeName = item.nodeName;
+			if (typeof(obj[nodeName]) == "undefined") {
+				obj[nodeName] = xmlToJson(item);
+			} else {
+				if (typeof(obj[nodeName].push) == "undefined") {
+					var old = obj[nodeName];
+					obj[nodeName] = [];
+					obj[nodeName].push(old);
+				}
+				obj[nodeName].push(xmlToJson(item));
+			}
+		}
+	}
+	return obj;
+};
