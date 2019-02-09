@@ -135,13 +135,22 @@ $.ajax({
 
 });
 
-$.ajax({
-  // crossOrigin: true,
-  // datatype: "jsonp",
-  url:"https://api.darksky.net/forecast/c896d15d2a8926d09cc36230360c18f8/38.7907339,-121.2357828",
-  method: "GET"
-}).then(function(response){
-  // console.log(JSON.parse(response));
-  // console.log(response);
+// $.ajax({
+//   // crossOrigin: true,
+//   // datatype: "jsonp",
+//   url:"https://api.darksky.net/forecast/c896d15d2a8926d09cc36230360c18f8/38.7907339,-121.2357828",
+//   method: "GET"
+// }).then(function(response){
+//   // console.log(JSON.parse(response));
+//   // console.log(response);
 
-});
+// });
+
+
+for (var i=1; i<301; i++) {
+  var SR=$("<option>");
+  SR.text("SR" + i);
+  var SRvalue="sr" + i;
+  SR.attr("value", SRvalue);
+  $("#route-list").append(SR);
+}
