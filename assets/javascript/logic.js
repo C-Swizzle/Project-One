@@ -129,7 +129,6 @@ $(document).on('click', '#route-submit', function(event){
     console.log(selectedRoute);
     // $("#display-conditions").empty();
     $('#display-conditions').load('https://cors-anywhere.herokuapp.com/http://www.dot.ca.gov/hq/roadinfo/' + selectedRoute);
-
   });
 
 
