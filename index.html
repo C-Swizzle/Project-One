@@ -5,60 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>California Campers' Road Trip App</title>
+    <!-- Firebase link -->
     <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
-integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="assets/style/style.css">
-<!-- <script src="assets/javascript/ajax-cross-origin/js/jquery.ajax-cross-origin.min.js"></script> -->
+    <!-- jQuery link -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" 
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- CSS style link -->
+    <link rel="stylesheet" href="assets/style/style.css">
+    <!--????? link-->
+    <!-- <script src="assets/javascript/ajax-cross-origin/js/jquery.ajax-cross-origin.min.js"></script> -->
+    <!-- JavaScript link -->
     <script src="assets/javascript/logic.js"></script>
 </head>
+<!---->
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
     <nav id="head" class="navbar navbar-fixed-top" data-spy="affix">
-        <div  class="">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>                          
-            </button>
-            </div>
-
-            <div>
-            <div class="collapse navbar-collapse" id="Navbar">
-                <ul class="nav navbar-nav text-white">
-                <li><a href="#section1">Search Weather</a></li>
-                <li><a href="#section2">Results</a></li>
-                <li><a href="#section3">Contact</a></li>    
-                </ul>
-            </div>
-            </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                          
+        </button>
         </div>
+
+        <div>
+        <div class="collapse navbar-collapse" id="Navbar">
+            <ul class="nav navbar-nav text-white">
+            <li><a href="#section1">Search Weather</a></li>
+            <li><a href="#section2">Results</a></li>
+            <li><a href="#section3">Contact</a></li>    
+            </ul>
+        </div>
+        </div>
+        
     </nav>  
                
     <div class="container">
         <div id="title" class="row">
            <h1>Weather Search</h1>  
         </div>
-
+        <!--row 1, search form-->
         <div id="section1" class="row">
-            <div id="leftImage" class="col-xs-3 col-md-3 ">
+            <div id="leftImage" class="col-xs-3 col-md-3 col-lg-3">
                 <h6>Section 1, Left side</h6>
                 <img src="assets/images/swirl.jpeg" alt="placeholder-image" class="img-thumbnail">
             </div>
             
-                <!-- <div class="form-group">
-                  <label for="location-query">Location to check:</label>
-                  <input type="location" id="location-query" class="form-control" placeholder="Location to Check">
-                    </div>
-                  <button type="submit" id="location-submit" class="btn btn-primary">Submit</button>
-        </form> -->
-       
-            <div id="centerSearch" class="col-xs-6 ">
+            <div id="centerSearch" class="col-xs-6 col-md-6 col-lg-6">
                 <h6>Section 2, center, weather search </h6>                        
                     <form>    
                         <div class="form-group">
@@ -69,7 +65,7 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
                     </form>                
             </div> 
 
-            <div id="rightImage" class="col-xs-3 col-md-3 ">                                                    
+            <div id="rightImage" class="col-xs-3 col-md-3 col-lg-3">                                                    
                 <h6>Section 3,Right Side</h6>
                 <img src="assets/images/swirl.jpeg" alt="placeholder-image" class="img-thumbnail">    
             </div>
@@ -81,7 +77,7 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
 
 
         <div id="section2" class="row">
-                <div id="leftResults" class="col-xs-6 ">
+                <div id="leftResults" class="col-xs-6 col-md-6 col-lg-6">
                     
                         <div class="row">
                           <div class="col-sm-12">
@@ -426,16 +422,16 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
                     
                 </div>             
     
-                <div id="rightResults" class="col-xs-6 ">                                                    
+                <div id="rightResults" class="col-xs-6 col-md-6 col-lg-6">                                                    
                     <h6>R2, Right Side,weather results</h6>
                     <div id="summary"></div>  
                     <a href="https://darksky.net/poweredby/" class="text-secondary">Powered by Dark Sky</a> 
                 </div>
         </div>
     <br>
-
+        <!--row 3, contact form -->
         <div id="section3" class="row">
-            <div id="contact" class="card">
+            <div id="contact" class="card container center_div">
                 <div id= "card-head" class="card-header">Contact</div>
                     <div class="card-body">
                         <form>
@@ -448,16 +444,16 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <br>
-                                <input type="email" id="email" name="email" placeholder="example@gmail.com" required="required">                            
+                                <input type="email" id="email" name="email" placeholder="example@gmail.com" value="example@gmail.com" required="required">                            
                             </div>
 
                             <div class="form-group">
                                 <label for="message">Message</label>
                                 <br>
-                                <input type="message" id="message" name="message" placeholder="Your message here"required="required">
+                                <input type="message" id="message" name="message" placeholder="Your message here" required="required">
                             </div>
                 
-                            <button id = "submitContact" type="submit" class="btn btn-primary">Submit</button>
+                            <button id="submitContact" type="submit" class="btn btn-primary">Submit</button>
                     
                         </form>
                     </div>
@@ -465,9 +461,8 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
         </div>
 
     </div>
-<br><br>
-    
-   
+
+   <!--footer -->
     <footer>
         <div class="container">
             Copyright &copy;
