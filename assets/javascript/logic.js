@@ -28,7 +28,6 @@ $(document).on("click", "#location-submit", function(e) {
   
   //opencage (latitude longitude) API
   $.ajax({
-    crossOrigin: true,
     url: "https://api.opencagedata.com/geocode/v1/json?q="+query+"&key=7f6166b91c1343faac23e99b69da427a",
     method:"GET"
     
@@ -39,49 +38,42 @@ $(document).on("click", "#location-submit", function(e) {
     state=response.results[0].components.state;
     country=response.results[0].components.country;
     formatted=response.results[0].formatted;
-    console.log(latitude);
-    // darksky api
-    $("#summary").empty();
-    var $h=$("<h1>");
-    $h.text("Want a different place? Maybe you meant one of these!");
-    $("#summary").append($h);
-    for (var i=1; i<response.results.length; i++) {
-      var $a=$("<a href='#' class='text-primary others-notbs'>");
-      $a.attr("data-latitude", response.results[i].geometry.lat);
-      $a.attr("data-longitude", response.results[i].geometry.lng);
-      $a.text(response.results[i].formatted);
-      $("#summary").append($a);
-      var br=$("<br>");
-      $("#summary").append(br);
-    }
-    var ppp = "https://api.darksky.net/forecast/c896d15d2a8926d09cc36230360c18f8/"+latitude+","+longitude;
-    console.log('ppp',ppp);
-    // $.ajax({
-    //   crossOrigin: true,
-    //   datatype: "jsonp",
-    //   url: ppp,
-    //   method: "GET"
-    // }).then(function(response){
-    //   console.log(JSON.parse(response));
-    //   // console.log(response);
-    //   var obj=JSON.parse(response);
-    //   // $("#summary").empty();
-      
-      
-    //   for (var i=6; i>=0;i--) {
-    //     var $p = $("<p class='text-success'>");
-    //     var dum = i+1;
-    //     $p.text("Day " + dum + ": " + obj.daily.data[i].summary);
-    //     // var $icon = $("	<canvas id='"+obj.daily.data[i].icon+"' width='64' height='64'></canvas>");
-    //     // $p.append($icon);
-    //     $("#summary").prepend($p);
-    //   }
-    //   var $h1=$("<h1>");
-    //   $h1.text("Weather Results for: " + formatted);
-    //   $("#summary").prepend($h1);
-      
-    // })
-    
+// darksky api
+$("#summary").empty();
+var $h=$("<h1>");
+$h.text("Want a different place? Maybe you meant one of these!");
+$("#summary").append($h);
+for (var i=1; i<response.results.length; i++) {
+  var $a=$("<a href='#' class='text-primary others-notbs'>");
+  $a.attr("data-latitude", response.results[i].geometry.lat);
+  $a.attr("data-longitude", response.results[i].geometry.lng);
+  $a.text(response.results[i].formatted);
+  $("#summary").append($a);
+  var br=$("<br>");
+  $("#summary").append(br);
+}
+$.ajax({
+  url:"https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/c896d15d2a8926d09cc36230360c18f8/"+latitude+","+longitude,
+  method: "GET"
+}).then(function(response){
+  console.log(response);
+  // console.log(response);
+  var obj=response;
+  // $("#summary").empty();
+ 
+
+  for (var i=6; i>=0;i--) {
+    var $p = $("<p class='text-success'>");
+    var dum = i+1;
+    $p.text("Day " + dum + ": " + obj.daily.data[i].summary);
+    $("#summary").prepend($p);
+  }
+  var $h1=$("<h1>");
+  $h1.text("Weather Results for: " + formatted);
+  $("#summary").prepend($h1);
+
+})
+
   })
 })
 
@@ -98,30 +90,26 @@ $(document).on("click", ".others-notbs", function() {
   var latitudeFromHere=$(this).attr("data-latitude");
   var longitudeFromHere=$(this).attr("data-longitude");
   var place =$(this).text();
-  $.ajax({
-    crossOrigin: true,
-    datatype: "jsonp",
-    url:"https://api.darksky.net/forecast/c896d15d2a8926d09cc36230360c18f8/"+latitudeFromHere+","+longitudeFromHere,
-    method: "GET"
-    
-  }).then(function(response){
-    var obj=JSON.parse(response);
-    $("#summary").empty();
-    var $hhh=$("<h1>");
-    $hhh.text("Weather Results for: " + place);
-    
-    for (var i=6; i>=0;i--) {
-      var $p = $("<p class='text-success'>");
-      var dum = i+1;
-      $p.text("Day " + dum + ": " + obj.daily.data[i].summary);
-      $("#summary").prepend($p);
-    }
-    $("#summary").prepend($hhh);
-  });
+$.ajax({
+  url:"https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/c896d15d2a8926d09cc36230360c18f8/"+latitudeFromHere+","+longitudeFromHere,
+  method: "GET"
+
+}).then(function(response){
+  var obj=response;
+  $("#summary").empty();
+ var $hhh=$("<h1>");
+ $hhh.text("Weather Results for: " + place);
+ for (var i=6; i>=0;i--) {
+  var $p = $("<p class='text-success'>");
+  var dum = i+1;
+  $p.text("Day " + dum + ": " + obj.daily.data[i].summary);
+  // var $icon = $("	<canvas id='"+obj.daily.data[i].icon+"' width='64' height='64'></canvas>");
+  // $p.append($icon);
+  $("#summary").prepend($p);
+}
+$("#summary").prepend($hhh);
 });
-
-
-
+});
     console.log('test01');
 $(document).on('click', '#traffic-submit', function(event){
   event.preventDefault();  
