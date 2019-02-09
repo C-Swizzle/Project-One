@@ -1,23 +1,94 @@
-#navItems {
+#Navbar {
     float: right;
 }
+#head {
+    background-color: rgb(92, 158, 136); 
+    border-bottom: 5px solid #465c5b;
+}
 
-#header {
-    background-color: rgb(92, 158, 136);
+#title {
+    color:white;
+    text-align: center;
+    font-family: fantasy;
+    font-size: 50px;
+    background-color: grey;
     padding: 30px;
+    padding-top: 80px;
     margin-bottom: 10px;
 }
 
-#head {
-    color:rgb(5, 48, 37);
-    font-family: fantasy;
+body {
+    position: relative;
+    background-color: rgb(183, 208, 255);
 }
 
-h1 {
-    font-size: 50px;
+#section1 {
+    padding:10px;height:400px;
+    color: #fff; 
+    background-color: #1E88E5;
 }
 
-a {
-    color:rgb(5, 48, 37);
+#section2 {
+    padding:10px;
+    height:300px;
+    color: #fff; 
+    background-color: #673ab7;
 }
+
+#section3 {
+    padding:10px;
+    height:300px;
+    background-color: #ff9800;
+    text-align: center;
+}
+
 /*navigation bar end */
+
+/*first section, search form begins*/
+#centerSearch {
+    background-color: aquamarine;
+    height: 100%;
+    border: solid 3px white;
+    padding: 50px 100px;
+}
+
+#leftImage{
+    background-color: pink;
+    height: 100%;
+}
+
+#rightImage {
+    background-color: rgb(192, 125, 125);
+    height: 100%;
+}
+
+/*second row*/
+
+#leftResults {
+    background-color: rgb(235, 235, 141);
+
+}
+
+#rightResults {
+    background-color: aqua;
+}
+
+/*contact form */
+#contact {
+    background-color: whitesmoke;
+    width: 50%;
+    align-content: center;
+}
+
+/*footer */
+footer {
+    padding: 30px 0;
+    font-size: 12px;
+    color: #ccc;
+    text-align: center;
+    background-color: rgb(92, 158, 136); 
+    border-top: 5px solid #465c5b;
+    margin-top: 10px;
+}
+
+
