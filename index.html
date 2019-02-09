@@ -51,6 +51,13 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
                 <img src="assets/images/swirl.jpeg" alt="placeholder-image" class="img-thumbnail">
             </div>
             
+                <div class="form-group">
+                  <label for="location-query">Location to check:</label>
+                  <input type="location" id="location-query" class="form-control" placeholder="Location to Check">
+                    </div>
+                  <button type="submit" id="location-submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div id="summary">
             <div id="centerSearch" class="col-xs-6 ">
                 <h6>Section 2, center, weather search </h6>                        
                     <form>    
@@ -114,6 +121,349 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
         </div>
 
     </div>
+<br><br>
+    <div class= container>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="row" id="travel-route-row">
+            <div class="panel panel-default">
+              <div class="panel-heading ">Select a California Roadway</div>
+                <div class="panel-body">
+                  <form>
+                      <div class="dropdown">
+
+                          <label for="route-query">Select a Route Number:</label>
+                          <select id = "route-list">
+                              <option value = "sr1">SR-1</option>
+                              <option value = "sr2">SR-2</option>
+                              <option value = "sr3">SR-3</option>
+                              <option value = "sr4">SR-5</option>
+                              <option value = "i5">I-5</option>
+                              <option value = "us6">US-6</option>
+                              <!-- <option value = "7"></option> -->
+                              <option value = "i8">I-8</option>
+                              <option value = "sr9">SR-9</option>
+                              <option value = "i10">I-10</option>
+                              <!-- <option value = "11"></option> -->
+                              <option value = "sr12">SR-12</option>
+                              <option value = "sr13">SR-13</option>
+                              <option value = "sr14">SR-14</option>
+                              <option value = "i15">I-15</option>
+                              <option value = "sr16">SR-16</option>
+                              <option value = "sr17">SR-17</option>
+                              <option value = "sr18">SR-18</option>
+                              <option value = "sr19">SR-19</option>
+                              <option value = "sr20">SR20</option>
+                              <!-- <option value = "21"></option> -->
+                              <option value = "sr22">SR-22</option>
+                              <option value = "sr23">SR-23</option>
+                              <option value = "sr24">SR-24</option>
+                              <option value = "sr25">SR-25</option>
+                              <option value = "sr26">SR-26</option>
+                              <option value = "sr27">SR-27</option>
+                              <option value = "sr28">SR-28</option>
+                              <option value = "sr29">SR-29</option>
+                              <option value = "sr30">SR-30</option>
+                              <!-- <option value = "31"></option> -->
+                              <option value = "sr32">SR-32</option>
+                              <option value = "sr33">SR-33</option>
+                              <option value = "sr34">SR-34</option>
+                              <option value = "sr35">SR-35</option>
+                              <option value = "sr36">SR-36</option>
+                              <option value = "sr37">SR-37</option>
+                              <option value = "sr38">SR-38</option>
+                              <option value = "sr39">SR-39</option>
+                              <option value = "i40">I-40</option>
+                              <option value = "sr41">SR-41</option>
+                              <!-- <option value = "42"></option> -->
+                              <option value = "sr43">SR-43</option>
+                              <option value = "sr44">SR-44</option>
+                              <option value = "sr45">SR-45</option>
+                              <option value = "sr46">SR-46</option>
+                              <option value = "sr47">SR-47</option>
+                              <option value = "sr48">SR-48</option>
+                              <option value = "sr49">SR-49</option>
+                              <option value = "us50">US-50</option>
+                              <option value = "sr51">SR-51</option>
+                              <option value = "sr52">SR-52</option>
+                              <option value = "sr53">SR-53</option>
+                              <option value = "sr54">SR-54</option>
+                              <option value = "sr55">SR-55</option>
+                              <option value = "sr56">SR-56</option>
+                              <option value = "sr57">SR-57</option>
+                              <option value = "sr58">SR-58</option>
+                              <option value = "sr59">SR-59</option>
+                              <option value = "sr60">SR-60</option>
+                              <option value = "sr61">SR-61</option>
+                              <option value = "sr62">SR-62</option>
+                              <option value = "sr63">SR-63</option>
+                              <!-- <option value = "64"></option> -->
+                              <option value = "sr65">SR-65</option>
+                              <option value = "sr66">SR-66</option>
+                              <option value = "sr67">SR-67</option>
+                              <option value = "sr68">SR-68</option>
+                              <!-- <option value = "69"></option> -->
+                              <option value = "sr70">SR-70</option>
+                              <option value = "sr71">SR-71</option>
+                              <option value = "sr72">SR-72</option>
+                              <option value = "sr73">SR-73</option>
+                              <option value = "sr74">SR-74</option>
+                              <option value = "sr75">SR-75</option>
+                              <option value = "sr76">SR-76</option>
+                              <option value = "sr77">SR-77</option>
+                              <option value = "sr78">SR-78</option>
+                              <option value = "sr79">SR-79</option>
+                              <option value = "us80">US-80</option>
+                              <!-- <option value = "81"></option> -->
+                              <option value = "sr82">SR-82</option>
+                              <option value = "sr83">SR-83</option>
+                              <option value = "sr84">SR-84</option>
+                              <option value = "sr85">SR-85</option>
+                              <option value = "sr86">SR-86</option>
+                              <option value = "sr87">SR-87</option>
+                              <option value = "sr88">SR-88</option>
+                              <option value = "sr89">SR-89</option>
+                              <option value = "sr90">SR-90</option>
+                              <option value = "sr91">SR-91</option>
+                              <option value = "sr92">SR-92</option>
+                              <option value = "sr93">SR-93</option>
+                              <option value = "sr94">SR-94</option>
+                              <option value = "sr95">US-95</option>
+                              <option value = "sr96">SR-96</option>
+                              <option value = "us97">US-97</option>
+                              <option value = "sr98">SR-98</option>
+                              <option value = "sr99">SR-99</option>
+                              <!-- <option value = "100"></option> -->
+                              <option value = "us101">US-101</option>
+                              <!-- <option value = "102"></option> -->
+                              <option value = "sr103">SR-103</option>
+                              <option value = "sr104">SR-104</option>
+                              <option value = "i105">I-105</option>
+                              <!-- <option value = "106"></option> -->
+                              <option value = "sr107">SR-107</option>
+                              <option value = "sr108">SR-108</option>
+                              <option value = "sr109">SR-109</option>
+                              <option value = "i110">I-110</option>
+                              <option value = "sr111">SR-111</option>
+                              <option value = "sr112">SR-112</option>
+                              <option value = "sr113">SR-113</option>
+                              <option value = "sr114">SR-114</option>
+                              <option value = "sr115">SR-115</option>
+                              <option value = "sr116">SR-116</option>
+                              <option value = "sr117">SR-117</option>
+                              <option value = "sr118">SR-118</option>
+                              <option value = "sr119">SR-119</option>
+                              <option value = "sr120">SR-120</option>
+                              <option value = "sr121">SR-121</option>
+                              <!-- <option value = "122"></option> -->
+                              <option value = "sr123">SR-123</option>
+                              <option value = "sr124">SR-124</option>
+                              <option value = "sr125">SR-125</option>
+                              <option value = "sr126">SR-126</option>
+                              <option value = "sr127">SR-127</option>
+                              <option value = "sr128">SR-128</option>
+                              <option value = "sr129">SR-129</option>
+                              <option value = "sr130">SR-130</option>
+                              <option value = "sr131">SR-131</option>
+                              <option value = "sr132">SR-132</option>
+                              <option value = "sr133">SR-133</option>
+                              <option value = "sr134">SR-134</option>
+                              <option value = "sr135">SR-135</option>
+                              <option value = "sr136">SR-136</option>
+                              <option value = "sr137">SR-137</option>
+                              <option value = "sr138">SR-138</option>
+                              <option value = "sr139">SR-139</option>
+                              <option value = "sr140">SR-140</option>
+                              <option value = "sr141">SR-141</option>
+                              <option value = "sr142">SR-142</option>
+                              <!-- <option value = "143">four</option> -->
+                              <option value = "sr144">SR-144</option>
+                              <option value = "sr145">SR-145</option>
+                              <option value = "sr146">SR-146</option>
+                              <option value = "sr147">SR-147</option>
+                              <option value = "sr148">SR-148</option>
+                              <option value = "sr149">SR-149</option>
+                              <option value = "sr150">SR-150</option>
+                              <option value = "sr151">SR-131</option>
+                              <option value = "sr152">SR-132</option>
+                              <option value = "sr153">SR-133</option>
+                              <option value = "sr154">SR-134</option>
+                              <option value = "sr155">SR-135</option>
+                              <option value = "sr156">SR-136</option>
+                              <!-- <option value = "157"></option> -->
+                              <option value = "sr158">SR-158</option>
+                              <option value = "sr159">SR-159</option>
+                              <option value = "sr160">SR-160</option>
+                              <option value = "sr161">SR-161</option>
+                              <option value = "sr162">SR-162</option>
+                              <option value = "sr163">SR-163</option>
+                              <option value = "sr164">SR-164</option>
+                              <option value = "sr165">SR-165</option>
+                              <option value = "sr166">SR-166</option>
+                              <option value = "sr167">SR-167</option>
+                              <option value = "sr168">SR-168</option>
+                              <option value = "sr169">SR-169</option>
+                              <option value = "sr170">SR-170</option>
+                              <!-- <option value = "171"></option> -->
+                              <option value = "sr172">SR-172</option>
+                              <option value = "sr173">SR-173</option>
+                              <option value = "sr174">SR-174</option>
+                              <option value = "sr175">SR-175</option>
+                              <!-- <option value = "176"></option> -->
+                              <option value = "sr177">SR-177</option>
+                              <option value = "sr178">SR-178</option>
+                              <!-- <option value = "179"></option> -->
+                              <option value = "sr180">SR-180</option>
+                              <option value = "sr181">SR-181</option>
+                              <option value = "sr182">SR-182</option>
+                              <option value = "sr183">SR-183</option>
+                              <option value = "sr184">SR-184</option>
+                              <option value = "sr185">SR-185</option>
+                              <option value = "sr186">SR-186</option>
+                              <option value = "sr187">SR-187</option>
+                              <option value = "sr188">SR-188</option>
+                              <option value = "sr189">SR-189</option>
+                              <option value = "sr190">SR-190</option>
+                              <option value = "sr191">SR-191</option>
+                              <option value = "sr192">SR-192</option>
+                              <option value = "sr193">SR-193</option>
+                              <option value = "sr194">SR-194</option>
+                              <option value = "sr195">SR-195</option>
+                              <!-- <option value = "196"></option> -->
+                              <option value = "sr197">SR-197</option>
+                              <option value = "sr198">SR-198</option>
+                              <option value = "us199">US-199</option>
+                              <option value = "sr200">SR-200</option>
+                              <option value = "sr201">SR-201</option>
+                              <option value = "sr202">SR-202</option>
+                              <option value = "sr203">SR-203</option>
+                              <option value = "sr204">SR-204</option>
+                              <option value = "i205">I-205</option>
+                              <!-- <option value = "206"></option> -->
+                              <option value = "sr216">SR-216</option>
+                              <option value = "sr217">SR-217</option>
+                              <option value = "sr218">SR-218</option>
+                              <option value = "sr219">SR-219</option>
+                              <option value = "sr220">SR-220</option>
+                              <option value = "sr221">SR-221</option>
+                              <option value = "sr222">SR-222</option>
+                              <option value = "sr223">SR-223</option>
+                              <option value = "sr224">SR-224</option>
+                              <option value = "sr225">SR-225</option>
+                              <!-- <option value = "226"></option> -->
+                              <option value = "sr227">SR-227</option>
+                              <!-- <option value = "228"></option> -->
+                              <option value = "sr229">SR-229</option>
+                              <!-- <option value = "230"></option> -->
+                              <!-- <option value = "231"></option> -->
+                              <!-- <option value = "232"></option> -->
+                              <!-- <option value = "233"></option> -->
+                              <!-- <option value = "234"></option> -->
+                              <!-- <option value = "235"></option> -->
+                              <option value = "sr236">SR-236</option>
+                              <option value = "sr237">SR-237</option>
+                              <option value = "sr238">SR-238</option>
+                              <!-- <option value = "239"></option> -->
+                              <!-- <option value = "240"></option> -->
+                              <option value = "sr241">SR-241</option>
+                              <option value = "sr242">SR-242</option>
+                              <option value = "sr243">SR-243</option>
+                              <option value = "sr244">SR-244</option>
+                              <option value = "sr245">SR-245</option>
+                              <option value = "sr246">SR-246</option>
+                              <option value = "sr247">SR-247</option>
+                              <!-- <option value = "248"></option> -->
+                              <!-- <option value = "249"></option> -->
+                              <!-- <option value = "250"></option> -->
+                              <!-- <option value = "251"></option> -->
+                              <option value = "sr252">SR-252</option>
+                              <option value = "sr253">SR-253</option>
+                              <option value = "sr254">SR-254</option>
+                              <option value = "sr255">SR-255</option>
+                              <!-- <option value = "256"></option> -->
+                              <!-- <option value = "257"></option> -->
+                              <!-- <option value = "258"></option> -->
+                              <option value = "sr259">SR-259</option>
+                              <option value = "sr260">SR-260</option>
+                              <!-- <option value = "261"></option> -->
+                              <option value = "sr262">SR-262</option>
+                              <option value = "sr263">SR-263</option>
+                              <!-- <option value = "264"></option> -->
+                              <option value = "sr265">SR-265</option>
+                              <option value = "sr266">SR-266</option>
+                              <option value = "sr267">SR-267</option>
+                              <!-- <option value = "268"></option> -->
+                              <option value = "sr269">SR-269</option>
+                              <option value = "sr270">SR-270</option>
+                              <option value = "sr271">SR-271</option>
+                              <!-- <option value = "272"></option> -->
+                              <option value = "sr273">SR-273</option>
+                              <option value = "sr274">SR-274</option>
+                              <option value = "sr275">SR-275</option>
+                              <!-- <option value = "276"></option> -->
+                              <!-- <option value = "277"></option> -->
+                              <!-- <option value = "278"></option> -->
+                              <!-- <option value = "279"></option> -->
+                              <option value = "i280">I-280</option>
+                              <option value = "sr281">SR-281</option>
+                              <option value = "sr282">SR-282</option>
+                              <option value = "sr283">SR-283</option>
+                              <option value = "sr284">SR-284</option>
+                              <!-- <option value = "285"></option> -->
+                              <!-- <option value = "286"></option> -->
+                              <!-- <option value = "287"></option> -->
+                              <!-- <option value = "288"></option> -->
+                              <!-- <option value = "289"></option> -->
+                              <!-- <option value = "290"></option> -->
+                              <!-- <option value = "291"></option> -->
+                              <!-- <option value = "292"></option> -->
+                              <!-- <option value = "293"></option> -->
+                              <!-- <option value = "294"></option> -->
+                              <!-- <option value = "295"></option> -->
+                              <!-- <option value = "296"></option> -->
+                              <!-- <option value = "297"></option> -->
+                              <!-- <option value = "298"></option> -->
+                              <option value = "sr299">SR-299</option>
+                              <option value = "sr330">SR-330</option>
+                              <option value = "sr371">SR-371</option>
+                              <option value = "i380">I-380</option>
+                              <option value = "us395">US-395</option>
+                              <option value = "i405">I-405</option>
+                              <option value = "i505">I-505</option>
+                              <option value = "i580">I-580</option>
+                              <option value = "i605">I-605</option>
+                              <option value = "i680">I-680</option>
+                              <option value = "i710">I-710</option>
+                              <option value = "i780">I-780</option>
+                              <option value = "i805">I-805</option>
+                              <option value = "i880">I-880</option>
+                              <option value = "sr905">SR-905</option>
+                              <option value = "i980">I-980</option>
+                          </select> 
+                      </div>
+                        <button type="submit" id="traffic-submit" class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="row">
+              <div class="panel panel-default">
+                  <div class="panel-heading ">Real Time Highway Conditions</div>
+                  <div class="panel-body" id='display-traffic'>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      <a href="http://www.dot.ca.gov" class="text-info">Real Highway Conditions Data by CalTrans</a>
+      </div>
    
     <footer>
         <div class="container">
