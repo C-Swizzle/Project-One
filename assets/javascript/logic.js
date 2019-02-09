@@ -111,8 +111,8 @@ $.ajax({
 $("#summary").prepend($hhh);
 });
 });
-    
-$(document).on('click', '#traffic-submit', function(event){
+    console.log('test01');
+$(document).on('click', '#route-submit', function(event){
   event.preventDefault();  
     console.log('clicked');
   
@@ -127,8 +127,8 @@ $(document).on('click', '#traffic-submit', function(event){
     }
     // var selectedRoute = routeList.options[routeList.selectedIndex].value;
     console.log(selectedRoute);
-    // $("#display-traffic").empty();
-    $('#display-traffic').load('https://cors-anywhere.herokuapp.com/http://www.dot.ca.gov/hq/roadinfo/' + selectedRoute);
+    // $("#display-conditions").empty();
+    $('#display-conditions').load('https://cors-anywhere.herokuapp.com/http://www.dot.ca.gov/hq/roadinfo/' + selectedRoute);
 
   });
 
