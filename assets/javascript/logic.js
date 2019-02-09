@@ -149,7 +149,7 @@ $("#submitContact").on("click", function(event){
   
   
   //add the stored values to the linked Firebase database 
-  projectDatabase.ref().push({
+  projectDatabase.ref().child("project1").push({
       name: name,
       email: email,
       message: message,

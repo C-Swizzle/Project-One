@@ -19,28 +19,33 @@
 
 body {
     position: relative;
-    background-color: rgb(183, 208, 255);
+    background: url("/assets/images/swirl.jpeg");
+    /* background-size: 100vh 100vh; */
+    /* background-color: aqua; */
 }
 
+
 #section1 {
-    padding:10px;height:400px;
+    padding:10px;
+    min-height: 400px;
     color: #fff; 
     background-color: #1E88E5;
 }
 
 #section2 {
     padding:10px;
-    height:300px;
+    min-height: 100px;
     color: #fff; 
     background-color: #673ab7;
     position: initial;
 }
 
 #section3 {
-    padding:10px;
-    height:300px;
+    padding:5px;
+    min-height: 400px;
     background-color: #ff9800;
     text-align: center;
+    
 }
 
 /*navigation bar end */
@@ -79,7 +84,14 @@ body {
     background-color: whitesmoke;
     width: 50%;
     align-content: center;
+    padding: 20px;
+    margin-top: 40px;
 }
+
+#card-head {
+    padding:10px;
+}
+
 
 /*footer */
 footer {
