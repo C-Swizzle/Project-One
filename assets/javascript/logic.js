@@ -53,14 +53,14 @@ for (var i=1; i<response.results.length; i++) {
   $("#summary").append(br);
 }
 $.ajax({
-  crossOrigin: true,
-  datatype: "jsonp",
-  url:"https://api.darksky.net/forecast/c896d15d2a8926d09cc36230360c18f8/"+latitude+","+longitude,
+  // crossOrigin: true,
+  // datatype: "jsonp",
+  url:"https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/c896d15d2a8926d09cc36230360c18f8/"+latitude+","+longitude,
   method: "GET"
 }).then(function(response){
-  console.log(JSON.parse(response));
+  console.log(response);
   // console.log(response);
-  var obj=JSON.parse(response);
+  var obj=response;
   // $("#summary").empty();
  
 
@@ -97,11 +97,11 @@ $(document).on("click", ".others-notbs", function() {
 $.ajax({
   crossOrigin: true,
   datatype: "jsonp",
-  url:"https://api.darksky.net/forecast/c896d15d2a8926d09cc36230360c18f8/"+latitudeFromHere+","+longitudeFromHere,
+  url:"https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/c896d15d2a8926d09cc36230360c18f8/"+latitudeFromHere+","+longitudeFromHere,
   method: "GET"
 
 }).then(function(response){
-  var obj=JSON.parse(response);
+  var obj=response;
   $("#summary").empty();
  var $hhh=$("<h1>");
  $hhh.text("Weather Results for: " + place);
