@@ -5,46 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>California Campers' Road Trip App</title>
+    <!-- Firebase link -->
     <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
-integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="assets/style/style.css">
-<script src="assets/javascript/ajax-cross-origin/js/jquery.ajax-cross-origin.min.js"></script>
+    <!-- jQuery link -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" 
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- CSS style link -->
+    <link rel="stylesheet" href="assets/style/style.css">
+    <!--????? link-->
+    <script src="assets/javascript/ajax-cross-origin/js/jquery.ajax-cross-origin.min.js"></script>
+    <!-- JavaScript link -->
     <script src="assets/javascript/logic.js"></script>
 </head>
+<!---->
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
     <nav id="head" class="navbar navbar-fixed-top" data-spy="affix">
-        <div  class="">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>                          
-            </button>
-            </div>
-
-            <div>
-            <div class="collapse navbar-collapse" id="Navbar">
-                <ul class="nav navbar-nav text-white">
-                <li><a href="#section1">Search Weather</a></li>
-                <li><a href="#section2">Results</a></li>
-                <li><a href="#section3">Contact</a></li>    
-                </ul>
-            </div>
-            </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                          
+        </button>
         </div>
+
+        <div>
+        <div class="collapse navbar-collapse" id="Navbar">
+            <ul class="nav navbar-nav text-white">
+            <li><a href="#section1">Search Weather</a></li>
+            <li><a href="#section2">Results</a></li>
+            <li><a href="#section3">Contact</a></li>    
+            </ul>
+        </div>
+        </div>
+        
     </nav>  
                
     <div class="container">
         <div id="title" class="row">
            <h1>Weather Search</h1>  
         </div>
-
+        <!--row 1, search form-->
         <div id="section1" class="row">
             <div id="leftImage" class="col-xs-3 ">
                 <h6>Section 1, Left side</h6>
@@ -69,7 +72,7 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
 
         </div>
     <br>
-
+        <!--row 2, display results -->
         <div id="section2" class="row">
                 <div id="leftResults" class="col-xs-6 ">
                     <h6>row2, Left side, map results?</h6>
@@ -82,9 +85,9 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
                 </div>
         </div>
     <br>
-
+        <!--row 3, contact form -->
         <div id="section3" class="row">
-            <div id="contact" class="card">
+            <div id="contact" class="card container center_div">
                 <div id= "card-head" class="card-header">Contact</div>
                     <div class="card-body">
                         <form>
@@ -106,7 +109,7 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
                                 <input type="message" id="message" name="message" placeholder="Your message here"required="required">
                             </div>
                 
-                            <button id = "submitContact" type="submit" class="btn btn-primary">Submit</button>
+                            <button id="submitContact" type="submit" class="btn btn-primary">Submit</button>
                     
                         </form>
                     </div>
@@ -114,7 +117,8 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
         </div>
 
     </div>
-   
+
+   <!--footer -->
     <footer>
         <div class="container">
             Copyright &copy;

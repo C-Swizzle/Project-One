@@ -1,17 +1,22 @@
  //Active Search API Key: SAXTH2D7NCRDMQYTH4Q2ACYK
  //Campground API Key: CV62R4AWQVP6W4Z6ZWS5XWT4
  // Initialize Firebase
- var config = {
-    apiKey: "AIzaSyBUm91ISX7r3E0e4GQPHlX6vwe-GT03uWQ",
-    authDomain: "project-one-52a15.firebaseapp.com",
-    databaseURL: "https://project-one-52a15.firebaseio.com",
-    projectId: "project-one-52a15",
-    storageBucket: "project-one-52a15.appspot.com",
-    messagingSenderId: "653933644732"
-  };
-  firebase.initializeApp(config);
+//  var config = {
+//     apiKey: "AIzaSyBUm91ISX7r3E0e4GQPHlX6vwe-GT03uWQ",
+//     authDomain: "project-one-52a15.firebaseapp.com",
+//     databaseURL: "https://project-one-52a15.firebaseio.com",
+//     projectId: "project-one-52a15",
+//     storageBucket: "project-one-52a15.appspot.com",
+//     messagingSenderId: "653933644732"
+//   };
+//   firebase.initializeApp(config);
 
   // adding some change to check if branch is working
+
+
+$(document).ready(function(){
+
+  
 var query;
   $(document).on("click", "#location-submit", function(e) {
     e.preventDefault();
@@ -115,3 +120,48 @@ $.ajax({
   $("#summary").prepend($hhh);
 });
 });
+
+
+///////////////capture contact form info, save in firebase/////////////
+
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDaeMIfhGLcG0QfVToRlYSYIBW4LeVBoXI",
+    authDomain: "groupproject1-ef4fd.firebaseapp.com",
+    databaseURL: "https://groupproject1-ef4fd.firebaseio.com",
+    projectId: "groupproject1-ef4fd",
+    storageBucket: "groupproject1-ef4fd.appspot.com",
+    messagingSenderId: "414755737460"
+  };
+  firebase.initializeApp(config);
+
+var projectDatabase = firebase.database();
+
+//onclick event when the submit button is clicked
+$("#submitContact").on("click", function(event){
+  //keep the page from refreshing
+  event.preventDefault();
+  //create variables to store the values of each input from the form 
+  var name = $("#name").val().trim();
+  var email = $("#email").val().trim();
+  var message = $("#message").val().trim();
+  
+  
+  //add the stored values to the linked Firebase database 
+  projectDatabase.ref().push({
+      name: name,
+      email: email,
+      message: message,
+  });
+  // console.log(database);
+
+   //clear the text boxes to prepare for the next entry
+   $("#name").val("");
+   $("#email").val("");
+   $("#message").val("");
+   
+});
+
+});
+/////////////////////////////////mt contact firebase end///////////////////////////
