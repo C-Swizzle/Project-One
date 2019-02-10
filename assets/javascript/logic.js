@@ -79,6 +79,84 @@ $.ajax({
 
 })
 
+//////////////////////////////////////////////////
+  ///// AIRBNB STARTS HERE /////////////////////////
+  //////////////////////////////////////////////////
+  // Inside "onClick" function
+
+  var apikey = "d306zoyjsyarp7ifhu67rjxn52tv0t20"; // Public apiKey
+  // var airURL = "https://api.airbnb.com/v2/explore_tabs?key="+apikey+"&_format=for_explore_search_web&lng="+longitude+"&lat="+latitude;
+  var airURL = "https://api.airbnb.com/v2/explore_tabs?key="+apikey+"&refinement_paths%5B%5D=%2Fhomes&lat="+latitude+"&lng="+longitude;
+  // var airURL = "https://api.airbnb.com/v2/explore_tabs?key="+apikey+"&refinement_paths%5B%5D=%2Fhomes&adults=0&children=0&infants=0&guests=0&allow_override%5B%5D=&map_toggle=true&zoom=10&search_by_map=true&sw_lat=38.80296766606032&sw_lng=-120.33803406967935&ne_lat=39.37878982432351&ne_lng=-119.70971404198677&s_tag=X6EQHTxB";
+  // var airURL = "https://www.airbnb.com/s/Las-Vegas--NV--United-States/homes?refinement_paths%5B%5D=%2Fhomes&query=Las%20Vegas%2C%20NV%2C%20United%20States&adults=0&children=0&infants=0&guests=0&allow_override%5B%5D=&map_toggle=true&zoom=10&search_by_map=true&sw_lat=38.80296766606032&sw_lng=-120.33803406967935&ne_lat=39.37878982432351&ne_lng=-119.70971404198677&s_tag=X6EQHTxB";
+  
+  // Perfoming an AJAX GET request to our queryURL
+  $.ajax({
+      crossOrigin: true,
+    url: airURL,
+    dataType: "json",
+  //   method: "GET",
+  }) .then(function(response) {
+  var results = JSON.parse(response);
+  // console.log(results);
+
+  // Clear airbnb row before displaying results
+  $("#display-air").empty();
+
+  // loop through available "sections" array, each containing multiple listings
+  var sectionIndex = results.explore_tabs[0].sections;
+  for (var si = 0; si < sectionIndex.length; si++) {
+    // console.log(results.explore_tabs[0].sections[si]);
+    var listTypes= results.explore_tabs[0].sections[si].result_type;
+    // console.log(action);
+  
+    if (listTypes=== "listings") {
+      var lType = "listings";
+      // loop through only rental listing inside each "section"
+      var listingsIndex = results.explore_tabs[0].sections[si][lType];
+      // console.log(results.explore_tabs[0].sections[0][lType][li]);
+  for (var li = 1; li < listingsIndex.length; li++) {
+   
+    var listName = results.explore_tabs[0].sections[si][lType][li].listing.name;
+    var listCity = results.explore_tabs[0].sections[si][lType][li].listing.city;
+    var lImg = results.explore_tabs[0].sections[si][lType][li].listing.picture_url;
+    var rateStart = results.explore_tabs[0].sections[si][lType][li].pricing_quote.price_string;
+
+    // possible $$rate per freq display instead of starting rate(future use)
+    var rate = results.explore_tabs[0].sections[si][lType][li].pricing_quote.rate.amount_formatted;
+    var freq = results.explore_tabs[0].sections[si][lType][li].pricing_quote.rate_type;
+
+    // create outer div for each listing
+    var $div1 = $("<div>");
+    $div1.attr("style", "margin: 5px; padding: 5px; display: inline-block;width: 150px;");
+
+    // create inner div for image and title
+    var $div2 = $("<div>");
+
+    // set temporary styling to apply background listing image
+    $div2.attr("style", "height: 150px; color: #0000FF; width: 150px; background: url("+lImg+"); background-repeat: no-repeat; background-position: center; background-size: cover; vertical-align: bottom;");
+    var $img = $("<img>");
+    $div1.append($div2);
+    $div2.append(listName);
+    $div1.append(rateStart);
+    $div1.append("<br>"+listCity);
+    $("#display-air").append($div1);
+  }  
+    // for future listings of other airbnb activities
+    } else if (listTypes=== "experiences") {
+      var lType = "trip_templates"; 
+    } else if (listTypes=== "refinements") {
+      var lType = "refinements";
+    } else {
+      var lType = "";
+    }
+  // console.log(aList[lType]);
+  }
+})
+  ////////////////////////////////////////////////
+  ///// AIRBNB ENDS HERE /////////////////////////
+  ////////////////////////////////////////////////
+
   })
 })
 
