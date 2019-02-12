@@ -7,21 +7,22 @@
 }
 
 #title {
+    background-image: url("../images/aerial.jpeg");
+    background-size: cover;
     color:white;
     text-align: center;
     font-family: fantasy;
-    font-size: 50px;
-    background-color: grey;
-    padding: 30px;
+    /* font-size: 100px; */
+    /* background-color: grey; */
+    /* padding: 30px; */
     padding-top: 80px;
     margin-bottom: 10px;
+    height: 275px;
 }
 
 body {
     position: relative;
-    background: url("/assets/images/swirl.jpeg");
-    /* background-size: 100vh 100vh; */
-    /* background-color: aqua; */
+    background: url("../images/swirl.jpeg");
 }
 
 
@@ -34,7 +35,7 @@ body {
 
 #section2 {
     padding:10px;
-    min-height:300px;
+    min-height:400px;
     color: black; 
     background-color: #673ab7;
     overflow: hidden;
@@ -42,7 +43,7 @@ body {
 
 #section3 {
     padding:10px;
-    min-height:300px;
+    min-height:400px;
     background-color: #ff9800;
     text-align: center;
     
