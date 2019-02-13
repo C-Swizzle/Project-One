@@ -2,47 +2,81 @@
     float: right;
 }
 #head {
-    background-color: rgb(92, 158, 136); 
-    border-bottom: 5px solid #465c5b;
+    background-color: rgb(22, 35, 109); 
+    border-bottom: 5px solid #2361be;
 }
 
 #title {
-    color:white;
+    background-image: url("../images/road.jpeg");
+    background-size: cover;
+    color:whitesmoke;
+    border: solid 2px rgb(22, 35, 109);
     text-align: center;
-    font-family: fantasy;
-    font-size: 50px;
-    background-color: grey;
-    padding: 30px;
-    padding-top: 80px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-top: 35px;
     margin-bottom: 10px;
+    height: 275px;
+
 }
+/*/////////////navigation bar end ///////////////////*/
 
 body {
     position: relative;
-    background: url("/assets/images/swirl.jpeg");
-    /* background-size: 100vh 100vh; */
-    /* background-color: aqua; */
+    background: url("../images/atmosphere.jpeg");
+    background-size: cover;
 }
 
-
+/*///////////// section 1, weather, begin ///////////////////*/ 
 #section1 {
+    border: solid 2px rgb(22, 35, 109);
     padding:10px;
     min-height: 400px;
-    color: #fff; 
-    background-color: #1E88E5;
+    background-image: url("../images/umbrella.jpeg");
+    background-size: cover;
 }
 
+#sectionsTitle {
+    background-color: rgb(22, 35, 109);
+    color: whitesmoke;
+    height: 50px; 
+}
+
+/*first section, search form begins*/
+#centerSearch {
+    border: solid 2px rgb(22, 35, 109);
+    background-color: whitesmoke;
+    min-height: 100%;
+    padding: 50px 100px;
+}
+
+#summary {
+    background-color: whitesmoke;
+}
+
+
+/*///////////// section 1 end ///////////////////*/ 
+
+/*///////////// section 2, road conditions, begin ///////////////////*/ 
 #section2 {
+    /* border: solid 2px rgb(22, 35, 109); */
     padding:10px;
-    min-height:300px;
+    min-height:400px;
     color: black; 
-    background-color: #673ab7;
+    background-image: url("../images/traffic.jpeg");
+    background-size: cover;
     overflow: hidden;
 }
+
+.panel-default {
+    border: solid 2px rgb(22, 35, 109);
+}
+
+/*///////////// section 2 end ///////////////////*/ 
 
  /*////////////////  AIRBNB START   //////////*/
  
  #section3 {       /* BEFORE SEARCH RESULTS */
+    border: solid 2px rgb(22, 35, 109);
     padding:10px; 
     min-height:300px;
     background-color: #ff6464; 
@@ -87,67 +121,44 @@ body {
 }
 /*////////////////  AIRBNB END   //////////*/
 
+/*///////////// section 4, contact form, begin ///////////////////*/ 
+
 #section4 {
+    border: solid 2px rgb(22, 35, 109);
     padding:10px;
-    min-height:300px;
-    background-color: #ff9800;
+    min-height:400px;
+    background-color: #2361be;
     text-align: center;
     
 }
 
-/*navigation bar end */
-
-/*first section, search form begins*/
-#centerSearch {
-    background-color: aquamarine;
-    min-height: 100%;
-    border: solid 3px white;
-    padding: 50px 100px;
-}
-
-#leftImage{
-    background-color: pink;
-    min-height: 100%;
-}
-
-#rightImage {
-    background-color: rgb(192, 125, 125);
-    min-height: 100%;
-}
-
-/*second row*/
-
-#leftResults {
-    background-color: rgb(235, 235, 141);
-
-}
-
-#rightResults {
-    background-color: aqua;
-}
-
-/*contact form */
+/*contact form begin*/
 #contact {
     background-color: whitesmoke;
     width: 50%;
     align-content: center;
     padding: 20px;
     margin-top: 40px;
+    border: solid 2px rgb(22, 35, 109);
 }
 
 #card-head {
     padding:10px;
 }
 
+/* contact form end */
+
+/*///////////// section 4 end ///////////////////*/ 
 
 /*footer */
 footer {
+    border: solid 2px rgb(22, 35, 109);
     padding: 30px 0;
     font-size: 12px;
     color: #ccc;
     text-align: center;
-    background-color: rgb(92, 158, 136); 
-    border-top: 5px solid #465c5b;
+    background-color: rgb(22, 35, 109);  
+    border-top: 5px solid #2361be;
     margin-top: 10px;
 }
 
