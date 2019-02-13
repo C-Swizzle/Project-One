@@ -253,7 +253,12 @@
     
     
     /////////////////////////////////mt contact firebase end///////////////////////////
-        console.log('test01');
+    
+     //////////////////////////////////////////////////
+      ///// ROAD CONDITIONS START HERE /////////////////////////
+      //////////////////////////////////////////////////
+
+    console.log('test01');
     $(document).on('click', '#route-submit', function(event){
       event.preventDefault();  
         console.log('clicked');
@@ -276,6 +281,115 @@
       });
     
     
-    // });
+    /////////////////////////////////END ROAD CONDITIONS///////////////////////////
+    
+    
+     //////////////////////////////////////////////////
+      ///// CAMPGROUND STARTS HERE /////////////////////////
+      //////////////////////////////////////////////////
+      var campLat;
+      var campLong;
+      var campName;
+      var campImage;
+      var campPets;
+      var campWater;
+      var campSewer;
+    
+      $(document).on('click', '#campground-submit', function(){
+        event.preventDefault();
+        var apikey = 'CV62R4AWQVP6W4Z6ZWS5XWT4';
+        var proxy = 'https://cors-anywhere.herokuapp.com/';
+        parkName = $("#park-search").val();
+        parkName = parkName.replace(' ', '+');
+        console.log(parkName);
+    
+        var activeURL = 'https://cors-anywhere.herokuapp.com/http://api.amp.active.com/camping/campgrounds/?pstate=CA&pname=' + parkName + '&api_key=cv62r4awqvp6w4z6zws5xwt4'
+        console.log(activeURL);
+     
+        
+        var facilityPhotoURL =  'http://www.reserveamerica.com'
+    
+      $.ajax({
+        crossOrigin: 'true',
+        url: activeURL,
+        method: 'GET'
+      }).then(function(response){
+        // console.log(response);
+        console.log(xmlToJson(response));
+        
+        var campObject = (xmlToJson(response));
+        campObject = campObject.resultset.result;
+        if (!Array.isArray(campObject)) {
+          campObject = [campObject];
+        }
+        console.log('campObject', campObject);
+      
+        $("#display-campground").empty();
+        for (var index = 0; index < campObject.length; index++){
+          
+          campName = campObject[index]['@attributes'].facilityName;
+          campPhoto = facilityPhotoURL + campObject[index]['@attributes'].faciltyPhoto;
+          campPets = campObject[index]['@attributes'].sitesWithPetsAllowed;
+          campWater = campObject[index]['@attributes'].sitesWithWaterHookup;
+          campSewer = campObject[index]['@attributes'].sitesWithSewerHookup;
+          
+    
+          var campInfoDiv = $('<div id="camp-info">');
+          $('#display-campground').append(campInfoDiv);
+          var $displayName = ('<p> Campground Name:' + campName + '</p>');
+          var $displayImage = ('<img src="' + campPhoto + '">');
+          var $displayPets = ('<p>Are Pets allowed?:' + campPets + '</p>');
+          var $displayWater = ('<p> Water Hookup?:' + campWater + '</p>');
+          var $displaySewer = ('<p> Sewer Hookup?:' + campSewer + '</p>');
+         
+          $(campInfoDiv).append($displayName);
+          $(campInfoDiv).append($displayImage);
+          $(campInfoDiv).append($displayPets);
+          $(campInfoDiv).append($displayWater);
+          $(campInfoDiv).append($displaySewer);
+          $(campInfoDiv).append('<hr>');
+        }
+    
+      })
+    })
+    
+    // Changes XML to JSON
+    function xmlToJson(xml) {
+        
+        var obj = {};
+    
+        if (xml.nodeType == 1) { // element
+            // do attributes
+            if (xml.attributes.length > 0) {
+            obj["@attributes"] = {};
+                for (var j = 0; j < xml.attributes.length; j++) {
+                    var attribute = xml.attributes.item(j);
+                    obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
+                }
+            }
+        } else if (xml.nodeType == 3) { // text
+            obj = xml.nodeValue;
+        }
+    
+        // do children
+        if (xml.hasChildNodes()) {
+            for(var i = 0; i < xml.childNodes.length; i++) {
+                var item = xml.childNodes.item(i);
+                var nodeName = item.nodeName;
+                if (typeof(obj[nodeName]) == "undefined") {
+                    obj[nodeName] = xmlToJson(item);
+                } else {
+                    if (typeof(obj[nodeName].push) == "undefined") {
+                        var old = obj[nodeName];
+                        obj[nodeName] = [];
+                        obj[nodeName].push(old);
+                    }
+                    obj[nodeName].push(xmlToJson(item));
+                }
+            }
+        }
+        return obj;
+    };
+    /////////////////////////////////END CAMPGROUND///////////////////////////
     
     });
