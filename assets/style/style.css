@@ -15,7 +15,8 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding-top: 35px;
     margin-bottom: 10px;
-    height: 275px;
+    min-height: 275px;
+    overflow: auto;
 
 }
 /*/////////////navigation bar end ///////////////////*/
@@ -39,6 +40,7 @@ body {
     background-color: rgb(22, 35, 109);
     color: whitesmoke;
     height: 50px; 
+    border: solid 2px whitesmoke;
 }
 
 /*first section, search form begins*/
