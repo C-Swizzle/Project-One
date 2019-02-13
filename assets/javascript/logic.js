@@ -65,7 +65,7 @@
       // console.log(response);
       var obj=response;
       // $("#summary").empty();
-     
+      $("#summary").css("display","inline-block");
     
       for (var i=6; i>=0;i--) {
         var $p = $("<p class='text-success'>");
@@ -270,6 +270,7 @@
         // var selectedRoute = routeList.options[routeList.selectedIndex].value;
         console.log(selectedRoute);
         // $("#display-conditions").empty();
+        $("#highwayResults").css("display", "inline-block");
         $('#display-conditions').load('https://cors-anywhere.herokuapp.com/http://www.dot.ca.gov/hq/roadinfo/' + selectedRoute);
     
       });

@@ -50,7 +50,11 @@ body {
 }
 
 #summary {
+    display:none;
+    border: solid 2px rgb(22, 35, 109);
     background-color: whitesmoke;
+    min-height: 100%;
+    padding: 50px 100px;
 }
 
 
@@ -161,5 +165,7 @@ footer {
     border-top: 5px solid #2361be;
     margin-top: 10px;
 }
-
+#highwayResults {
+    display:none;
+}
 
