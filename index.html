@@ -16,7 +16,7 @@
     <!-- CSS style link -->
     <link rel="stylesheet" href="assets/style/style.css">
     <!--CORS link for airbnb-->
-    <script src="assets/javascript/ajax-cross-origin/js/jquery.ajax-cross-origin.min.js"></script>
+    <!-- <script src="assets/javascript/ajax-cross-origin/js/jquery.ajax-cross-origin.min.js"></script> -->
     <!-- JavaScript link -->
     <script src="assets/javascript/logic.js"></script>
 </head>
@@ -433,8 +433,44 @@
                 </div>
             </div>
         </airbnb>
-    <br>
+        <br>
         <!--row 4, contact form -->
+        <div id="section4" class="row">
+            <h2 id="sectionsTitle" class="text-center">Campground</h2> 
+           
+            <div class="col-sm-6">
+                <div class="row" id="campground-row">
+                  <div class="panel panel-default">
+                    <div class="panel-heading ">Search a California Campground</div>
+                      <div class="panel-body">
+                          <form action="query" class="text-box">
+                              <label for="query"> 1) SEARCH FOR A CAMPGROUND</label>
+                              <input name= "query" type="text" id="park-search" placeholder="Park Name">
+                              <input type="submit" id="campground-submit"><br>              
+                              <label for="instruction-to-user">Must type Park Name to retreive specific data </label>
+                              
+                            </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+            <div class="col-sm-6">
+                <div class="row">
+                  <div class="panel panel-default">
+                      <div class="panel-heading ">Campground Results</div>
+                      <div class="panel-body" id='display-campground'>
+                      </div>
+                  </div>
+                </div>
+              </div> 
+              <a href="https://www.active.com" class="text-info">Campground Data by Active.com</a>
+
+        </div>
+
+    <br>
+        <!--row 5, contact form -->
         <div id="section4" class="row">
             <h2 id="sectionsTitle" class="text-center">Get in Touch</h2> 
             <div id="contact" class="card container center_div">
