@@ -16,8 +16,8 @@
         crossorigin="anonymous">
     <!-- CSS style link -->
     <link rel="stylesheet" href="assets/style/style.css">
-    <!--????? link-->
-    <!-- <script src="assets/javascript/ajax-cross-origin/js/jquery.ajax-cross-origin.min.js"></script> -->
+    <!--CORS link for airbnb-->
+    <script src="assets/javascript/ajax-cross-origin/js/jquery.ajax-cross-origin.min.js"></script>
     <!-- JavaScript link -->
     <script src="assets/javascript/logic.js"></script>
 </head>
@@ -438,8 +438,22 @@
             </div>
         </div>
         <br>
-        <!--row 3, contact form -->
-        <div id="section3" class="row">
+        <!-- row 3, airbnb results-->
+        <airbnb>
+            <div id="section3" class="row">
+                <div id="airbnb" class="text-center">
+                    <div id="display-air" style="padding: 10px">
+                        <img src="./assets/images/airbnb.jpg" alt="People Places Love airbnb" height="250px">
+                    </div>
+                </div>
+                <div class="text-right">
+                    <a class="pba" href="https://www.airbnb.com">Powered by airbnb</a>
+                </div>
+            </div>
+            </airbnb>
+            <br>
+            <!--row 4, contact form -->
+            <div id="section4" class="row">
             <div id="contact" class="card container center_div">
                 <div id="card-head" class="card-header">Contact</div>
                 <div class="card-body">

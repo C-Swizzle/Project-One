@@ -1,6 +1,12 @@
 # Project-One
+[https://c-swizzle.github.io/Project-One/](https://c-swizzle.github.io/Project-One/)
 
+
+### Chris MacK
 ### Alex Mukha
+### Michelle Tyson
+### Steve Archuleta
+
 Ideas for Project
 
 *	Farm To Fork Farmer’s Market Map App
@@ -13,14 +19,9 @@ Ideas for Project
 *	Spiritual Retreat App
 *	Highest Peaks and Lowest Elevations App
 *	Nutritional Guide App
-### Alex Mukha ideas:
-    * Shopping list
-    * Train List
-### Alex Mukha
-### Michelle Tyson
+*   Shopping list
+*   Train List
 
-
-### Steve Archuleta
 # Group Do: Designing your MVP
 
 ## Instructions
