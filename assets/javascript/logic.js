@@ -323,9 +323,13 @@
           campObject = [campObject];
         }
         console.log('campObject', campObject);
-      
+      $("#campground-query-display").css("display","inline-block");
         $("#display-campground").empty();
-        for (var index = 0; index < campObject.length; index++){
+        var campLength=campObject.length;
+        if (campObject.length>20) {
+          campLength=20;
+        } 
+        for (var index = 0; index < campLength; index++){
           
           campName = campObject[index]['@attributes'].facilityName;
           campPhoto = facilityPhotoURL + campObject[index]['@attributes'].faciltyPhoto;
@@ -349,7 +353,7 @@
           $(campInfoDiv).append($displaySewer);
           $(campInfoDiv).append('<hr>');
         }
-    
+      
       })
     })
     
@@ -391,5 +395,5 @@
         return obj;
     };
     /////////////////////////////////END CAMPGROUND///////////////////////////
-    
+  
     });
