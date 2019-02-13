@@ -85,16 +85,16 @@
   // Inside "onClick" function
   
   var apikey = "d306zoyjsyarp7ifhu67rjxn52tv0t20"; // Public apiKey
-  var airURL = "https://api.airbnb.com/v2/explore_tabs?key="+apikey+"&refinement_paths%5B%5D=%2Fhomes&lat="+latitude+"&lng="+longitude;
+  var airURL = "https://cors-anywhere.herokuapp.com/https://api.airbnb.com/v2/explore_tabs?key="+apikey+"&refinement_paths%5B%5D=%2Fhomes&lat="+latitude+"&lng="+longitude;
   
   // Perfoming an AJAX GET request to our queryURL
   $.ajax({
-      crossOrigin: true,
+      // crossOrigin: true,
     url: airURL,
-    dataType: "json",
-    // method: "GET",
+    // dataType: "json",
+    method: "GET",
   }) .then(function(response) {
-  var results = JSON.parse(response);
+  var results = response;
   console.log(results);
 
   // Clear airbnb row before displaying results
