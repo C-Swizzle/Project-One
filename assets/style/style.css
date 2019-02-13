@@ -9,13 +9,14 @@
 #title {
     background-image: url("../images/road.jpeg");
     background-size: cover;
-    color:whitesmoke;
+    color: rgb(22, 35, 109);
+    text-shadow: -1px 0  whitesmoke, 0 2px whitesmoke, 2px 0  whitesmoke, 0 -2px whitesmoke;
     border: solid 2px rgb(22, 35, 109);
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     padding-top: 35px;
     margin-bottom: 10px;
-    height: 275px;
+    /*height: 275px;*/
 
 }
 /*/////////////navigation bar end ///////////////////*/
@@ -38,7 +39,8 @@ body {
 #sectionsTitle {
     background-color: rgb(22, 35, 109);
     color: whitesmoke;
-    height: 50px; 
+    padding-top: 7px;
+    padding-bottom: 7px;
 }
 
 /*first section, search form begins*/
@@ -47,6 +49,7 @@ body {
     background-color: whitesmoke;
     min-height: 100%;
     padding: 50px 100px;
+    margin-top: 5px;
 }
 
 #summary {
@@ -55,6 +58,7 @@ body {
     background-color: whitesmoke;
     min-height: 100%;
     padding: 50px 100px;
+    margin-top: 5px;
 }
 
 
@@ -62,7 +66,6 @@ body {
 
 /*///////////// section 2, road conditions, begin ///////////////////*/ 
 #section2 {
-    /* border: solid 2px rgb(22, 35, 109); */
     padding:10px;
     min-height:400px;
     color: black; 
@@ -142,7 +145,7 @@ body {
     width: 50%;
     align-content: center;
     padding: 20px;
-    margin-top: 40px;
+    margin: 40px 10;
     border: solid 2px rgb(22, 35, 109);
 }
 
@@ -167,5 +170,6 @@ footer {
 }
 #highwayResults {
     display:none;
+    margin: 5px 0 5px 0;
 }
 
