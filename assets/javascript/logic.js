@@ -211,25 +211,6 @@
     
     
     ///////////////capture contact form info, save in firebase/////////////
-    
-    ///user input validation 
-
-    //name can't be blank
-    //email must be completed
-    //message can't be blank
-
-    // $("#name").on("input", function(){
-    //   var userInput = $(this);
-    //   var nameTest = userInput.val();
-    //   if (nameTest){userInput}
-      
-      
-
-    // });
-
-    // $("#email")
-
-    // $("#message")
 
       // Initialize Firebase
       var config = {
