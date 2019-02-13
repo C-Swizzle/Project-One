@@ -19,27 +19,33 @@
 
 body {
     position: relative;
-    background-color: rgb(183, 208, 255);
+    background: url("/assets/images/swirl.jpeg");
+    /* background-size: 100vh 100vh; */
+    /* background-color: aqua; */
 }
 
+
 #section1 {
-    padding:10px;height:400px;
+    padding:10px;
+    min-height: 400px;
     color: #fff; 
     background-color: #1E88E5;
 }
 
 #section2 {
     padding:10px;
-    height:300px;
-    color: #fff; 
+    min-height:300px;
+    color: black; 
     background-color: #673ab7;
+    overflow: hidden;
 }
 
 #section3 {
     padding:10px;
-    height:300px;
+    min-height:300px;
     background-color: #ff9800;
     text-align: center;
+    
 }
 
 /*navigation bar end */
@@ -47,19 +53,19 @@ body {
 /*first section, search form begins*/
 #centerSearch {
     background-color: aquamarine;
-    height: 100%;
+    min-height: 100%;
     border: solid 3px white;
     padding: 50px 100px;
 }
 
 #leftImage{
     background-color: pink;
-    height: 100%;
+    min-height: 100%;
 }
 
 #rightImage {
     background-color: rgb(192, 125, 125);
-    height: 100%;
+    min-height: 100%;
 }
 
 /*second row*/
@@ -78,7 +84,14 @@ body {
     background-color: whitesmoke;
     width: 50%;
     align-content: center;
+    padding: 20px;
+    margin-top: 40px;
 }
+
+#card-head {
+    padding:10px;
+}
+
 
 /*footer */
 footer {

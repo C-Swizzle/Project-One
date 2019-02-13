@@ -1,16 +1,21 @@
 
  // Initialize Firebase
- var config = {
-  apiKey: "AIzaSyBUm91ISX7r3E0e4GQPHlX6vwe-GT03uWQ",
-  authDomain: "project-one-52a15.firebaseapp.com",
-  databaseURL: "https://project-one-52a15.firebaseio.com",
-  projectId: "project-one-52a15",
-  storageBucket: "project-one-52a15.appspot.com",
-  messagingSenderId: "653933644732"
-};
-firebase.initializeApp(config);
+//  var config = {
+//     apiKey: "AIzaSyBUm91ISX7r3E0e4GQPHlX6vwe-GT03uWQ",
+//     authDomain: "project-one-52a15.firebaseapp.com",
+//     databaseURL: "https://project-one-52a15.firebaseio.com",
+//     projectId: "project-one-52a15",
+//     storageBucket: "project-one-52a15.appspot.com",
+//     messagingSenderId: "653933644732"
+//   };
+//   firebase.initializeApp(config);
 
-// adding some change to check if branch is working
+  // adding some change to check if branch is working
+
+
+$(document).ready(function(){
+
+  
 var query;
 $(document).on("click", "#location-submit", function(e) {
   e.preventDefault();
@@ -111,11 +116,56 @@ $("#summary").prepend($hhh);
 });
 
 
-// ROAD CONDITIONS
+///////////////capture contact form info, save in firebase/////////////
+
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDaeMIfhGLcG0QfVToRlYSYIBW4LeVBoXI",
+    authDomain: "groupproject1-ef4fd.firebaseapp.com",
+    databaseURL: "https://groupproject1-ef4fd.firebaseio.com",
+    projectId: "groupproject1-ef4fd",
+    storageBucket: "groupproject1-ef4fd.appspot.com",
+    messagingSenderId: "414755737460"
+  };
+  firebase.initializeApp(config);
+
+var projectDatabase = firebase.database();
+
+//onclick event when the submit button is clicked
+$("#submitContact").on("click", function(event){
+  //keep the page from refreshing
+  event.preventDefault();
+  //create variables to store the values of each input from the form 
+  var name = $("#name").val().trim();
+  var email = $("#email").val().trim();
+  var message = $("#message").val().trim();
+  
+  
+  //add the stored values to the linked Firebase database 
+  projectDatabase.ref().child("project1").push({
+      name: name,
+      email: email,
+      message: message,
+  });
+  // console.log(database);
+
+   //clear the text boxes to prepare for the next entry
+   $("#name").val("");
+   $("#email").val("");
+   $("#message").val("");
+   
+});
+/////////////////////////////////mt contact firebase end///////////////////////////
+
+
+ //////////////////////////////////////////////////
+  ///// ROAD CONDITIONS START HERE /////////////////////////
+  //////////////////////////////////////////////////
     console.log('test01');
 $(document).on('click', '#route-submit', function(event){
   event.preventDefault();  
-    console.log('onclick');
+    console.log('clicked');
   
     var routeList = $('#route-list');
     console.log(routeList);
@@ -132,24 +182,76 @@ $(document).on('click', '#route-submit', function(event){
     $('#display-conditions').load('https://cors-anywhere.herokuapp.com/http://www.dot.ca.gov/hq/roadinfo/' + selectedRoute);
 
   });
+/////////////////////////////////END ROAD CONDITIONS///////////////////////////
 
+
+ //////////////////////////////////////////////////
+  ///// CAMPGROUND STARTS HERE /////////////////////////
+  //////////////////////////////////////////////////
+  var campLat;
+  var campLong;
+  var campName;
+  var campImage;
+  var campPets;
+  var campWater;
+  var campSewer;
+
+  $(document).on('click', '#campground-submit', function(){
+    event.preventDefault();
+    var apikey = 'CV62R4AWQVP6W4Z6ZWS5XWT4';
+    var proxy = 'https://cors-anywhere.herokuapp.com/';
+    parkName = $("#park-search").val();
+    parkName = parkName.replace(' ', '+');
+    console.log(parkName);
+
+    var activeURL = 'https://cors-anywhere.herokuapp.com/http://api.amp.active.com/camping/campgrounds/?pstate=CA&pname=' + parkName + '&api_key=cv62r4awqvp6w4z6zws5xwt4'
+    console.log(activeURL);
  
- //CAMPGROUND API Key: CV62R4AWQVP6W4Z6ZWS5XWT4
-$(document).on('click', '#campground-submit', function(){
-  event.preventDefault();
-  var proxy = 'https://cors-anywhere.herokuapp.com/';
+    
+    var facilityPhotoURL =  'http://www.reserveamerica.com'
 
-  var parkName = '';
   $.ajax({
-    url: proxy + 'http://api.amp.active.com/camping/campgrounds/?pstate=CA&pname=' + parkName + '&api_key=cv62r4awqvp6w4z6zws5xwt4',
+    crossOrigin: 'true',
+    url: activeURL,
     method: 'GET'
   }).then(function(response){
+    // console.log(response);
     console.log(xmlToJson(response));
+    
+    var campObject = (xmlToJson(response));
+    campObject = campObject.resultset.result;
+    if (!Array.isArray(campObject)) {
+      campObject = [campObject];
+    }
+    console.log('campObject', campObject);
+  
+    $("#display-campground").empty();
+    for (var index = 0; index < campObject.length; index++){
+      
+      campName = campObject[index]['@attributes'].facilityName;
+      campPhoto = facilityPhotoURL + campObject[index]['@attributes'].faciltyPhoto;
+      campPets = campObject[index]['@attributes'].sitesWithPetsAllowed;
+      campWater = campObject[index]['@attributes'].sitesWithWaterHookup;
+      campSewer = campObject[index]['@attributes'].sitesWithSewerHookup;
+      
+
+      var campInfoDiv = $('<div id="camp-info">');
+      $('#display-campground').append(campInfoDiv);
+      var $displayName = ('<p> Campground Name:' + campName + '</p>');
+      var $displayImage = ('<img src="' + campPhoto + '">');
+      var $displayPets = ('<p>Are Pets allowed?:' + campPets + '</p>');
+      var $displayWater = ('<p> Water Hookup?:' + campWater + '</p>');
+      var $displaySewer = ('<p> Sewer Hookup?:' + campSewer + '</p>');
+     
+      $(campInfoDiv).append($displayName);
+      $(campInfoDiv).append($displayImage);
+      $(campInfoDiv).append($displayPets);
+      $(campInfoDiv).append($displayWater);
+      $(campInfoDiv).append($displaySewer);
+      $(campInfoDiv).append('<hr>');
+    }
+
   })
-
-
-  $('#display-campground').text(response);
-
 })
 
 // Changes XML to JSON
@@ -189,3 +291,5 @@ function xmlToJson(xml) {
 	}
 	return obj;
 };
+});
+/////////////////////////////////END CAMPGROUND///////////////////////////
