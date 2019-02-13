@@ -65,7 +65,7 @@
       // console.log(response);
       var obj=response;
       // $("#summary").empty();
-      $("#summary").css("display","inline-block");
+      $("#summary").css("display","inline-block");  
     
       for (var i=6; i>=0;i--) {
         var $p = $("<p class='text-success'>");
@@ -212,7 +212,25 @@
     
     ///////////////capture contact form info, save in firebase/////////////
     
-    
+    ///user input validation 
+
+    //name can't be blank
+    //email must be completed
+    //message can't be blank
+
+    // $("#name").on("input", function(){
+    //   var userInput = $(this);
+    //   var nameTest = userInput.val();
+    //   if (nameTest){userInput}
+      
+      
+
+    // });
+
+    // $("#email")
+
+    // $("#message")
+
       // Initialize Firebase
       var config = {
         apiKey: "AIzaSyDaeMIfhGLcG0QfVToRlYSYIBW4LeVBoXI",
@@ -237,7 +255,7 @@
       
       
       //add the stored values to the linked Firebase database 
-      projectDatabase.ref().child("project1").push({
+      projectDatabase.ref().child("contactFormInfo").push({
           name: name,
           email: email,
           message: message,
@@ -253,12 +271,7 @@
     
     
     /////////////////////////////////mt contact firebase end///////////////////////////
-    
-     //////////////////////////////////////////////////
-      ///// ROAD CONDITIONS START HERE /////////////////////////
-      //////////////////////////////////////////////////
-
-    console.log('test01');
+        console.log('test01');
     $(document).on('click', '#route-submit', function(event){
       event.preventDefault();  
         console.log('clicked');
@@ -275,12 +288,10 @@
         // var selectedRoute = routeList.options[routeList.selectedIndex].value;
         console.log(selectedRoute);
         // $("#display-conditions").empty();
-        $("#highwayResults").css("display", "inline-block");
+        $("#highwayResults").css("display", "inline-block"); 
         $('#display-conditions').load('https://cors-anywhere.herokuapp.com/http://www.dot.ca.gov/hq/roadinfo/' + selectedRoute);
     
       });
-    
-    
     /////////////////////////////////END ROAD CONDITIONS///////////////////////////
     
     
@@ -390,6 +401,8 @@
         }
         return obj;
     };
-    /////////////////////////////////END CAMPGROUND///////////////////////////
+    ///////////////////////////
+    
+    // });
     
     });
