@@ -211,11 +211,8 @@
     
     
     ///////////////capture contact form info, save in firebase/////////////
-    ///////user input validation, must be filled before submission works/////
    
-
-
-      // Initialize Firebase
+     // Initialize Firebase
       var config = {
         apiKey: "AIzaSyDaeMIfhGLcG0QfVToRlYSYIBW4LeVBoXI",
         authDomain: "groupproject1-ef4fd.firebaseapp.com",
@@ -237,6 +234,7 @@
       var email = $("#email").val().trim();
       var message = $("#message").val().trim();
 
+       ///////user input validation, must be filled before submission works/////
       if(name === ""){
         $("#nameRequired").html("Name field must be filled out");
         console.log("Name field is incomplete"); 
