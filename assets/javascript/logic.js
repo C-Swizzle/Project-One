@@ -212,7 +212,7 @@
     
     ///////////////capture contact form info, save in firebase/////////////
     ///////user input validation, must be filled before submission works/////
-    
+   
 
 
       // Initialize Firebase
@@ -238,10 +238,13 @@
       var message = $("#message").val().trim();
 
       if(name === ""){
+        $("#nameRequired").html("Name field must be filled out");
         console.log("Name field is incomplete"); 
       } else if (email === ""){
+        $("#emailRequired").html("Email field must be filled out");
         console.log("Email field is incomplete");
       } else if (message === ""){
+        $("#messageRequired").html("Message field must be filled out");
         console.log("Message field is incomplete");
       } else { //add the stored values to the linked Firebase database 
           projectDatabase.ref().child("contactFormInfo").push({
@@ -254,8 +257,9 @@
           $("#name").val("");
           $("#email").val("");
           $("#message").val("");
-       
-   
+          $("#nameRequired").html("");
+          $("#emailRequired").html("");
+          $("#messageRequired").html("");
           }
     });
     
