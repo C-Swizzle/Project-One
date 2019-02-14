@@ -229,7 +229,7 @@
     var projectDatabase = firebase.database();
     
     //onclick event when the submit button is clicked
-    $("#submitContact").on("click", function(event){
+    $("#submitContact").on("submit", function(event){
       //keep the page from refreshing
       event.preventDefault();
       //create variables to store the values of each input from the form 
