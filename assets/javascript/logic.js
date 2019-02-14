@@ -211,6 +211,9 @@
     
     
     ///////////////capture contact form info, save in firebase/////////////
+    ///////user input validation, must be filled before submission works/////
+    
+
 
       // Initialize Firebase
       var config = {
