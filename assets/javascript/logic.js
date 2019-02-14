@@ -227,32 +227,37 @@
       firebase.initializeApp(config);
     
     var projectDatabase = firebase.database();
-    
+
     //onclick event when the submit button is clicked
-    $("#submitContact").on("submit", function(event){
+    $("#submitContact").on("click", function(event){
       //keep the page from refreshing
       event.preventDefault();
       //create variables to store the values of each input from the form 
       var name = $("#name").val().trim();
       var email = $("#email").val().trim();
       var message = $("#message").val().trim();
-      
-      
-      //add the stored values to the linked Firebase database 
-      projectDatabase.ref().child("contactFormInfo").push({
-          name: name,
-          email: email,
-          message: message,
-      });
-      // console.log(database);
-    
-       //clear the text boxes to prepare for the next entry
-       $("#name").val("");
-       $("#email").val("");
-       $("#message").val("");
+
+      if(name === ""){
+        console.log("Name field is incomplete"); 
+      } else if (email === ""){
+        console.log("Email field is incomplete");
+      } else if (message === ""){
+        console.log("Message field is incomplete");
+      } else { //add the stored values to the linked Firebase database 
+          projectDatabase.ref().child("contactFormInfo").push({
+            name: name,
+            email: email,
+            message: message,
+          });
+        
+        //clear the text boxes to prepare for the next entry
+          $("#name").val("");
+          $("#email").val("");
+          $("#message").val("");
        
+   
+          }
     });
-    
     
     /////////////////////////////////mt contact firebase end///////////////////////////
         console.log('test01');
