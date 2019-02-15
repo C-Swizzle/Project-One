@@ -173,3 +173,30 @@ footer {
     margin: 5px 0 5px 0;
 }
 
+
+.btn{
+    position: relative;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    display: block;
+    background-color: blanchedalmond;
+    font-style: 22p;
+    font-weight: bold;
+    color: gray;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 6px #5f5f5e;
+  }
+  
+  .btn:hover {
+  box-shadow: 0 4px #5f5f5e;
+  top: 2px;
+  }
+  
+  .btn:active {
+  box-shadow: 0 0px #5f5f5e;
+  top: 6px;
+  }
