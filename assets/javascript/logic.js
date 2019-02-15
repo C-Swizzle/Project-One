@@ -65,7 +65,7 @@
       // console.log(response);
       var obj=response;
       // $("#summary").empty();
-      $("#summary").css("display","inline-block");
+      $("#summary").css("display","inline-block");  
     
       for (var i=6; i>=0;i--) {
         var $p = $("<p class='text-success'>");
@@ -211,9 +211,8 @@
     
     
     ///////////////capture contact form info, save in firebase/////////////
-    
-    
-      // Initialize Firebase
+   
+     // Initialize Firebase
       var config = {
         apiKey: "AIzaSyDaeMIfhGLcG0QfVToRlYSYIBW4LeVBoXI",
         authDomain: "groupproject1-ef4fd.firebaseapp.com",
@@ -225,7 +224,7 @@
       firebase.initializeApp(config);
     
     var projectDatabase = firebase.database();
-    
+
     //onclick event when the submit button is clicked
     $("#submitContact").on("click", function(event){
       //keep the page from refreshing
@@ -234,31 +233,36 @@
       var name = $("#name").val().trim();
       var email = $("#email").val().trim();
       var message = $("#message").val().trim();
-      
-      
-      //add the stored values to the linked Firebase database 
-      projectDatabase.ref().child("project1").push({
-          name: name,
-          email: email,
-          message: message,
-      });
-      // console.log(database);
-    
-       //clear the text boxes to prepare for the next entry
-       $("#name").val("");
-       $("#email").val("");
-       $("#message").val("");
-       
+
+       ///////user input validation, must be filled before submission works/////
+      if(name === ""){
+        $("#nameRequired").html("Name field must be filled out");
+        console.log("Name field is incomplete"); 
+      } else if (email === ""){
+        $("#emailRequired").html("Email field must be filled out");
+        console.log("Email field is incomplete");
+      } else if (message === ""){
+        $("#messageRequired").html("Message field must be filled out");
+        console.log("Message field is incomplete");
+      } else { //add the stored values to the linked Firebase database 
+          projectDatabase.ref().child("contactFormInfo").push({
+            name: name,
+            email: email,
+            message: message,
+          });
+        
+        //clear the text boxes to prepare for the next entry
+          $("#name").val("");
+          $("#email").val("");
+          $("#message").val("");
+          $("#nameRequired").html("");
+          $("#emailRequired").html("");
+          $("#messageRequired").html("");
+          }
     });
     
-    
     /////////////////////////////////mt contact firebase end///////////////////////////
-    
-     //////////////////////////////////////////////////
-      ///// ROAD CONDITIONS START HERE /////////////////////////
-      //////////////////////////////////////////////////
-
-    console.log('test01');
+        console.log('test01');
     $(document).on('click', '#route-submit', function(event){
       event.preventDefault();  
         console.log('clicked');
@@ -275,12 +279,10 @@
         // var selectedRoute = routeList.options[routeList.selectedIndex].value;
         console.log(selectedRoute);
         // $("#display-conditions").empty();
-        $("#highwayResults").css("display", "inline-block");
+        $("#highwayResults").css("display", "inline-block"); 
         $('#display-conditions').load('https://cors-anywhere.herokuapp.com/http://www.dot.ca.gov/hq/roadinfo/' + selectedRoute);
     
       });
-    
-    
     /////////////////////////////////END ROAD CONDITIONS///////////////////////////
     
     
@@ -390,6 +392,8 @@
         }
         return obj;
     };
-    /////////////////////////////////END CAMPGROUND///////////////////////////
+    ///////////////////////////
+    
+    // });
     
     });

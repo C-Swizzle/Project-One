@@ -1,5 +1,5 @@
-#Navbar {
-    float: right;
+#bs-example-navbar-collapse-1 {
+    float:right;
 }
 #head {
     background-color: rgb(22, 35, 109); 
@@ -16,8 +16,6 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     padding-top: 35px;
     margin-bottom: 10px;
-    /*height: 275px;*/
-
 }
 /*/////////////navigation bar end ///////////////////*/
 
@@ -78,6 +76,11 @@ body {
     border: solid 2px rgb(22, 35, 109);
 }
 
+#highwayResults {
+    display:none;
+    margin: 0px 0 5px 0;    
+}
+
 /*///////////// section 2 end ///////////////////*/ 
 
  /*////////////////  AIRBNB START   //////////*/
@@ -86,8 +89,9 @@ body {
     border: solid 2px rgb(22, 35, 109);
     padding:10px; 
     min-height:300px;
-    background-color: #ff6464; 
-    background: url("../images/airbnb-logo-880.png");
+    /* background-color: #ff6464; */
+    background: url("../images/airbnb\ 4.jpeg");
+    background-size: cover;
     text-align: center;
 }
 
@@ -128,9 +132,23 @@ body {
 }
 /*////////////////  AIRBNB END   //////////*/
 
-/*///////////// section 4, contact form, begin ///////////////////*/ 
+/*///////////// section 4, camping, begin ///////////////////*/ 
 
 #section4 {
+    border: solid 2px rgb(22, 35, 109);
+    padding:10px;
+    min-height:400px;
+    background: url("../images/tents.jpeg");
+    background-size: cover;
+    text-align: center;
+    
+}
+
+
+/*///////////// section 5,contact, begin ///////////////////*/ 
+
+/*contact form begin*/
+#section5 {
     border: solid 2px rgb(22, 35, 109);
     padding:10px;
     min-height:400px;
@@ -139,7 +157,6 @@ body {
     
 }
 
-/*contact form begin*/
 #contact {
     background-color: whitesmoke;
     width: 50%;
@@ -167,10 +184,6 @@ footer {
     background-color: rgb(22, 35, 109);  
     border-top: 5px solid #2361be;
     margin-top: 10px;
-}
-#highwayResults {
-    display:none;
-    margin: 5px 0 5px 0;
 }
 
 
